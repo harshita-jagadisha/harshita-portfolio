@@ -174,14 +174,24 @@ nav {
 }
 
 .keyword-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 32px;
+  margin-top: 24px;
+  font-family: var(--font-body);
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--grey);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
   width: 100%;
-  max-width: 300px;
+  max-width: 500px;
+}
+   .keyword-list span {
+  display: block;
+  text-align: center;
 }
 .keyword-list li {
   font-family: var(--font-body);
@@ -517,13 +527,10 @@ footer {
       <div class="hero-photo-col">
         <img src="harshita.jpg" alt="Harshita J" class="hero-photo"
              onerror="this.style.background='#EAE6DE';this.style.display='flex';this.style.alignItems='center';this.style.justifyContent='center';this.alt='Add harshita.jpg';">
-        <ul class="keyword-list">
-          <li>Enterprise Learning Strategy</li>
-          <li>Human-Centered Design</li>
-          <li>Capability Development</li>
-          <li>AI-Enabled Learning</li>
-          <li>Mentorship and Coaching</li>
-        </ul>
+        <div class="keyword-list">
+          <span>Enterprise Learning Strategy | Human-Centered Design | Capability Development</span>
+          <span>AI-Enabled Learning | Mentorship and Coaching</span>
+        </div>
       </div>
     </div>
   </div>
