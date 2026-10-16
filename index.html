@@ -227,8 +227,12 @@ nav {
 /* ============================================================
    ABOUT ME
    ============================================================ */
-.about { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.about-intro { max-width: 780px; margin-bottom: 60px; }
+.about {
+  background: var(--white);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding-top: 50px;
+}.about-intro { max-width: 780px; margin-bottom: 60px; }
 .about-intro p { font-size: 1.05rem; margin-bottom: 16px; color: var(--charcoal-2); }
 .about-intro p:last-child { margin-bottom: 0; }
 
@@ -541,8 +545,8 @@ footer {
      ============================================================ -->
 <section id="about" class="about reveal">
   <div class="wrap">
-    <div class="section-head" style="margin-bottom: 30px;">
-      <span class="eyebrow">About Me</span>
+ <div class="section-head" style="margin-bottom: 20px;">
+      <span class="eyebrow" style="margin-bottom: 0;">About Me</span>
     </div>
 
     <div class="about-intro">
