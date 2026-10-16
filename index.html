@@ -98,13 +98,20 @@ nav {
   padding: 16px 28px; max-width: var(--max-w); margin: 0 auto;
 }
 .nav-brand {
-  font-family: var(--font-head);
-  font-weight: 600;
-  font-size: 1.4rem;
-  letter-spacing: -0.015em;
+  font-family: 'Playfair Display', Georgia, serif !important;
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-size: 1.45rem;
+  letter-spacing: 0;
   color: var(--charcoal);
   cursor: pointer;
   transition: color .2s;
+}
+.nav-brand span,
+.nav-brand * {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  font-style: normal !important;
 }
 .nav-brand:hover { color: var(--amber-dark); }
 .nav-links {
