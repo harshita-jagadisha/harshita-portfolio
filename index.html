@@ -6,10 +6,9 @@
 <title>Harshita J — Learning Strategy & Human-Centered Design</title>
 <meta name="description" content="Harshita J — Learning and Development leader with 11+ years of experience designing enterprise learning experiences that drive business outcomes.">
 
-<!-- Google Fonts: Playfair Display for the name + Inter for the body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
@@ -28,8 +27,8 @@
   --radius:     14px;
   --shadow:     0 6px 28px rgba(26,26,26,0.07);
   --shadow-lg:  0 18px 50px rgba(26,26,26,0.12);
-  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-brand: 'Playfair Display', Georgia, serif;
+  --font-body:  'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-head:  'Fraunces', Georgia, 'Times New Roman', serif;
 }
 
 /* ============================================================
@@ -38,7 +37,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font);
+  font-family: var(--font-body);
   background: var(--ivory);
   color: var(--charcoal);
   line-height: 1.65;
@@ -55,14 +54,22 @@ section { padding: 90px 0; }
 /* ============================================================
    TYPOGRAPHY
    ============================================================ */
-h1, h2, h3, h4 { font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; color: var(--charcoal); }
-h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); margin-bottom: 14px; }
-h3 { font-size: 1.25rem; margin-bottom: 10px; }
-p  { color: var(--charcoal-2); }
+h1, h2, h3, h4 {
+  font-family: var(--font-head);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--charcoal);
+}
+h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
+h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 14px; }
+h3 { font-size: 1.35rem; margin-bottom: 10px; }
+h4 { font-size: 1.05rem; }
+p  { color: var(--charcoal-2); font-family: var(--font-body); }
 
 .eyebrow {
   display: inline-block;
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -74,7 +81,7 @@ p  { color: var(--charcoal-2); }
   background: linear-gradient(transparent 62%, rgba(232,163,61,0.55) 62%);
   padding: 0 2px;
 }
-.section-head { max-width: 680px; margin-bottom: 50px; }
+.section-head { max-width: 700px; margin-bottom: 50px; }
 .section-head p { color: var(--grey); font-size: 1.05rem; }
 
 /* ============================================================
@@ -90,20 +97,40 @@ nav {
   display: flex; align-items: center; justify-content: space-between;
   padding: 16px 28px; max-width: var(--max-w); margin: 0 auto;
 }
-
-/* --- BRAND: single color, Playfair Display font --- */
 .nav-brand {
-  font-family: var(--font-brand);
+  font-family: var(--font-head);
   font-weight: 600;
-  font-size: 1.35rem;
-  letter-spacing: -0.01em;
+  font-size: 1.4rem;
+  letter-spacing: -0.015em;
   color: var(--charcoal);
+  cursor: pointer;
+  transition: color .2s;
 }
-
-.nav-links { display: flex; gap: 30px; font-size: 0.92rem; font-weight: 500; }
+.nav-brand:hover { color: var(--amber-dark); }
+.nav-links {
+  display: flex; gap: 30px;
+  font-family: var(--font-body);
+  font-size: 0.92rem; font-weight: 500;
+}
 .nav-links a { color: var(--charcoal-2); transition: color .2s; }
 .nav-links a:hover { color: var(--amber-dark); }
 @media (max-width: 720px) { .nav-links { display: none; } }
+
+/* ============================================================
+   BACK TO TOP BUTTON
+   ============================================================ */
+#toTop {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--charcoal); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; cursor: pointer; z-index: 99;
+  opacity: 0; visibility: hidden;
+  transition: all .3s ease;
+  border: none; box-shadow: var(--shadow-lg);
+}
+#toTop.show { opacity: 1; visibility: visible; }
+#toTop:hover { background: var(--amber); color: var(--charcoal); transform: translateY(-3px); }
 
 /* ============================================================
    HERO
@@ -119,6 +146,7 @@ nav {
 .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
 .btn {
   display: inline-block; padding: 13px 26px; border-radius: 999px;
+  font-family: var(--font-body);
   font-weight: 600; font-size: 0.95rem; transition: all .22s ease;
   cursor: pointer; border: 1.5px solid transparent;
 }
@@ -140,10 +168,10 @@ nav {
   .hero-photo { margin: 0 auto; max-width: 260px; }
 }
 
-/* Proof strip */
 .proof-strip {
   margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border);
   display: flex; flex-wrap: wrap; gap: 14px 28px;
+  font-family: var(--font-body);
   font-size: 0.86rem; color: var(--grey); font-weight: 500;
 }
 .proof-strip span { display: inline-flex; align-items: center; gap: 10px; }
@@ -152,19 +180,112 @@ nav {
 }
 
 /* ============================================================
-   WHAT I DO
+   ABOUT ME (merged with What I Do + How I Think + Beyond My Role)
    ============================================================ */
-.what-i-do { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.about { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.about-intro { max-width: 780px; margin-bottom: 60px; }
+.about-intro p { font-size: 1.05rem; margin-bottom: 16px; color: var(--charcoal-2); }
+.about-intro p:last-child { margin-bottom: 0; }
+
+.subsection-head {
+  margin-bottom: 32px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.subsection-head h3 {
+  font-family: var(--font-head);
+  font-size: clamp(1.4rem, 2.6vw, 1.75rem);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.subsection-head p { color: var(--grey); font-size: 1rem; max-width: 640px; }
+
+/* Pillars (was "What I Do") */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 20px; }
 @media (max-width: 820px) { .pillars { grid-template-columns: 1fr; } }
 .pillar {
-  padding: 32px 28px; border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 28px 26px; border: 1px solid var(--border); border-radius: var(--radius);
   background: var(--ivory); transition: all .25s ease;
 }
 .pillar:hover { border-color: var(--amber); transform: translateY(-4px); box-shadow: var(--shadow); }
-.pillar-num { font-size: 0.8rem; font-weight: 700; color: var(--amber-dark); letter-spacing: 0.1em; margin-bottom: 14px; display: block; }
-.pillar h3 { margin-bottom: 12px; }
-.pillar p { font-size: 0.95rem; color: var(--grey); }
+.pillar-num {
+  font-family: var(--font-body);
+  font-size: 0.78rem; font-weight: 700; color: var(--amber-dark);
+  letter-spacing: 0.1em; margin-bottom: 12px; display: block;
+}
+.pillar h4 { font-size: 1.15rem; margin-bottom: 10px; font-family: var(--font-head); }
+.pillar p { font-size: 0.94rem; color: var(--grey); }
+
+/* How I think — light version */
+.think-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+@media (max-width: 820px) { .think-grid { grid-template-columns: 1fr; gap: 36px; } }
+.think-quote {
+  font-family: var(--font-head);
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  font-weight: 500; color: var(--charcoal);
+  line-height: 1.4; margin-bottom: 22px; letter-spacing: -0.01em;
+}
+.think-quote span { color: var(--amber-dark); }
+.think-body p { margin-bottom: 16px; font-size: 1rem; }
+.framework {
+  background: var(--ivory); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 28px;
+}
+.framework h4 {
+  font-family: var(--font-body);
+  color: var(--amber-dark); font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 0.12em; margin-bottom: 18px; font-weight: 700;
+}
+.fw-step { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.fw-step:last-child { border-bottom: none; padding-bottom: 0; }
+.fw-step:first-of-type { padding-top: 0; }
+.fw-num {
+  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+  background: var(--amber); color: var(--charcoal);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-body);
+  font-weight: 700; font-size: 0.82rem;
+}
+.fw-step strong {
+  display: block; color: var(--charcoal); font-family: var(--font-head);
+  font-size: 1.05rem; font-weight: 600; margin-bottom: 3px;
+}
+.fw-step span { font-size: 0.88rem; color: var(--grey); }
+
+/* Beyond my role — stories */
+.stories { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 820px) { .stories { grid-template-columns: 1fr; } }
+.story {
+  padding: 28px; background: var(--ivory); border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.story-title {
+  font-family: var(--font-body);
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--amber-dark); font-weight: 700; margin-bottom: 14px; display: block;
+}
+.story p { font-size: 0.94rem; margin-bottom: 12px; color: var(--charcoal-2); }
+.story p:last-child { margin-bottom: 0; }
+.story em { font-style: italic; color: var(--charcoal); font-weight: 500; }
+
+/* ============================================================
+   JOURNEY
+   ============================================================ */
+.journey-list { border-left: 2px solid var(--border); padding-left: 32px; margin-left: 8px; }
+.journey-item { position: relative; padding-bottom: 36px; }
+.journey-item:last-child { padding-bottom: 0; }
+.journey-item::before {
+  content: ''; position: absolute; left: -41px; top: 6px;
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--ivory); border: 3px solid var(--amber);
+}
+.journey-item h3 { margin-bottom: 4px; }
+.journey-item .role-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem; color: var(--amber-dark); font-weight: 600;
+  letter-spacing: 0.03em; margin-bottom: 10px;
+}
+.journey-item p { font-size: 0.95rem; color: var(--grey); }
 
 /* ============================================================
    CASE STUDIES
@@ -184,15 +305,17 @@ nav {
   display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;
 }
 .case-tag {
+  font-family: var(--font-body);
   font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--amber-dark); margin-bottom: 10px; display: block;
 }
-.case-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.case-card h3 { font-size: 1.4rem; margin-bottom: 10px; }
 .case-summary { font-size: 0.95rem; color: var(--grey); margin-bottom: 18px; }
 .case-metric {
   display: inline-block; padding: 6px 14px; background: rgba(232,163,61,0.13);
-  color: var(--amber-dark); font-size: 0.82rem; font-weight: 700; border-radius: 999px;
-  margin-right: 8px;
+  color: var(--amber-dark); font-family: var(--font-body);
+  font-size: 0.82rem; font-weight: 700; border-radius: 999px;
+  margin-right: 8px; margin-bottom: 6px;
 }
 .case-toggle {
   width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
@@ -212,6 +335,7 @@ nav {
   border-top: 1px solid var(--border);
 }
 .case-body h4 {
+  font-family: var(--font-body);
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
   color: var(--amber-dark); margin: 20px 0 8px; font-weight: 700;
 }
@@ -228,14 +352,12 @@ nav {
 }
 .tool-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
 .tool-tag {
+  font-family: var(--font-body);
   font-size: 0.76rem; padding: 5px 11px; border: 1px solid var(--border);
   border-radius: 6px; color: var(--grey); background: var(--ivory);
 }
 
-/* Learn-Experience-Assess visual */
-.lea {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 6px;
-}
+.lea { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 6px; }
 .lea-step {
   padding: 14px; border-radius: 10px; text-align: center;
   background: var(--ivory); border: 1px solid var(--border);
@@ -245,71 +367,29 @@ nav {
 @media (max-width: 640px) { .lea { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   HOW I THINK
+   SKILLS
    ============================================================ */
-.how-i-think { background: var(--charcoal); color: var(--white); }
-.how-i-think h2 { color: var(--white); }
-.how-i-think .eyebrow { color: var(--amber); }
-.how-i-think p { color: rgba(255,255,255,0.78); }
-.think-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-@media (max-width: 820px) { .think-grid { grid-template-columns: 1fr; gap: 40px; } }
-.think-quote {
-  font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 600; color: var(--white);
-  line-height: 1.4; margin-bottom: 24px; letter-spacing: -0.015em;
-}
-.think-quote span { color: var(--amber); }
-.think-body p { margin-bottom: 16px; }
-.framework {
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  border-radius: var(--radius); padding: 28px;
-}
-.framework h4 { color: var(--amber); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 18px; }
-.fw-step { display: flex; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.fw-step:last-child { border-bottom: none; }
-.fw-num {
-  width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
-  background: var(--amber); color: var(--charcoal);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 0.82rem;
-}
-.fw-step strong { display: block; color: var(--white); font-size: 0.98rem; margin-bottom: 3px; }
-.fw-step span { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+.skills { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+@media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .skills-grid { grid-template-columns: 1fr; } }
 
-/* ============================================================
-   JOURNEY
-   ============================================================ */
-.journey-list { border-left: 2px solid var(--border); padding-left: 32px; margin-left: 8px; }
-.journey-item { position: relative; padding-bottom: 36px; }
-.journey-item:last-child { padding-bottom: 0; }
-.journey-item::before {
-  content: ''; position: absolute; left: -41px; top: 6px;
-  width: 16px; height: 16px; border-radius: 50%;
-  background: var(--ivory); border: 3px solid var(--amber);
+.skill-card {
+  padding: 26px 24px; border: 1px solid var(--border);
+  border-radius: var(--radius); background: var(--ivory);
 }
-.journey-item h3 { margin-bottom: 4px; }
-.journey-item .role-meta {
-  font-size: 0.85rem; color: var(--amber-dark); font-weight: 600;
-  letter-spacing: 0.03em; margin-bottom: 10px;
-}
-.journey-item p { font-size: 0.95rem; color: var(--grey); }
-
-/* ============================================================
-   BEYOND THE ROLE
-   ============================================================ */
-.beyond { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.stories { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
-@media (max-width: 820px) { .stories { grid-template-columns: 1fr; } }
-.story {
-  padding: 30px; background: var(--ivory); border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-.story-title {
+.skill-card h4 {
+  font-family: var(--font-body);
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
-  color: var(--amber-dark); font-weight: 700; margin-bottom: 14px; display: block;
+  color: var(--amber-dark); margin-bottom: 16px; font-weight: 700;
 }
-.story p { font-size: 0.95rem; margin-bottom: 12px; color: var(--charcoal-2); }
-.story p:last-child { margin-bottom: 0; }
-.story em { font-style: italic; color: var(--charcoal); font-weight: 500; }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.skill-tag {
+  font-family: var(--font-body);
+  font-size: 0.82rem; padding: 6px 12px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 999px; color: var(--charcoal-2);
+}
 
 /* ============================================================
    RECOGNITION
@@ -321,6 +401,7 @@ nav {
   background: var(--white);
 }
 .recog-card h4 {
+  font-family: var(--font-body);
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
   color: var(--amber-dark); margin-bottom: 16px; font-weight: 700;
 }
@@ -341,14 +422,17 @@ nav {
 .contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 .contact-links a {
   display: inline-flex; align-items: center; gap: 10px;
-  padding: 13px 24px; border-radius: 999px; font-size: 0.92rem; font-weight: 600;
+  padding: 13px 24px; border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.92rem; font-weight: 600;
   border: 1px solid rgba(255,255,255,0.18); color: var(--white); transition: all .22s;
 }
 .contact-links a:hover { background: var(--amber); color: var(--charcoal); border-color: var(--amber); transform: translateY(-2px); }
 
 footer {
   background: var(--charcoal); color: rgba(255,255,255,0.45);
-  padding: 30px 0; text-align: center; font-size: 0.85rem;
+  padding: 30px 0; text-align: center;
+  font-family: var(--font-body); font-size: 0.85rem;
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -367,15 +451,18 @@ footer {
      ============================================================ -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-brand">Harshita J</div>
+    <div class="nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">Harshita J</div>
     <div class="nav-links">
-      <a href="#work">Work</a>
-      <a href="#approach">Approach</a>
+      <a href="#about">About</a>
       <a href="#journey">Journey</a>
+      <a href="#work">Work</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
 </nav>
+
+<!-- Back to top button -->
+<button id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- ============================================================
      HERO
@@ -412,31 +499,137 @@ footer {
 </section>
 
 <!-- ============================================================
-     WHAT I DO
+     ABOUT ME (merged: intro + What I Do + How I Think + Beyond My Role)
      ============================================================ -->
-<section class="what-i-do reveal">
+<section id="about" class="about reveal">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">What I Do</span>
-      <h2>I design learning that solves business problems.</h2>
-      <p>Not content for the sake of content — experiences that help people do their jobs better.</p>
+      <span class="eyebrow">About Me</span>
+      <h2>A little about how I work.</h2>
+    </div>
+
+    <!-- Short intro -->
+    <div class="about-intro">
+      <p>I'm a learning strategist with 11+ years of experience turning business problems into learning experiences that change how people perform — not just what they know.</p>
+      <p>I started as an instructional designer, grew into a program leader at Walmart, and now design enterprise learning across leadership, onboarding, career development, and AI-enabled experiences. My approach is simple: start with what people need to <em>do differently</em>, then work backwards from there.</p>
+      <p>I'm collaborative by default, curious about emerging tools and technologies, and always looking for ways to make learning faster, clearer, and more human.</p>
+    </div>
+
+    <!-- What I Do (pillars) -->
+    <div class="subsection-head">
+      <h3>How I approach the work</h3>
+      <p>Three threads that run through every project I lead.</p>
     </div>
 
     <div class="pillars">
       <div class="pillar">
         <span class="pillar-num">01</span>
-        <h3>Learning Strategy</h3>
+        <h4>Learning Strategy</h4>
         <p>Aligning capability development with business priorities. Partnering with stakeholders to define what people need to <em>do differently</em> — then building backwards from there.</p>
       </div>
       <div class="pillar">
         <span class="pillar-num">02</span>
-        <h3>Experience Design</h3>
+        <h4>Experience Design</h4>
         <p>End-to-end learning journeys that blend self-paced content, scenarios, application, and assessment — designed around the learner, not the curriculum.</p>
       </div>
       <div class="pillar">
         <span class="pillar-num">03</span>
-        <h3>AI-Enabled Design</h3>
+        <h4>AI-Enabled Design</h4>
         <p>Leveraging Generative AI to accelerate content creation, elevate quality, and unlock new forms of interactive, adaptive learning at enterprise scale.</p>
+      </div>
+    </div>
+
+    <!-- How I Think -->
+    <div class="subsection-head">
+      <h3>How I think about learning</h3>
+      <p>I start with the business problem — not the content.</p>
+    </div>
+
+    <div class="think-grid">
+      <div class="think-body">
+        <p class="think-quote">
+          "The success measure isn't, <span>'Did they complete the course?'</span>
+          It's whether they can look at a business situation, make a sound decision,
+          and explain why."
+        </p>
+        <p>Too often, learning starts with "what content do we need to teach?" I start with a different question: <em>what should people do differently — and what experience will help them get there?</em></p>
+        <p>That means working backwards from behaviours, blending digital learning with authentic application, and treating assessment as a chance to practise the real decision — not recall a definition.</p>
+      </div>
+
+      <div class="framework">
+        <h4>The Framework I Use</h4>
+        <div class="fw-step">
+          <div class="fw-num">1</div>
+          <div><strong>Learn</strong><span>Focused foundational knowledge — only what's needed on the job.</span></div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">2</div>
+          <div><strong>Experience</strong><span>Realistic scenarios using real tools. Makes the thinking visible.</span></div>
+        </div>
+        <div class="fw-step">
+          <div class="fw-num">3</div>
+          <div><strong>Assess</strong><span>Application-based decisions — a chance to practise the actual call they'll make.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Beyond My Role -->
+    <div class="subsection-head">
+      <h3>Beyond my role</h3>
+      <p>Moments that shaped how I lead — because learning leadership isn't only about design.</p>
+    </div>
+
+    <div class="stories">
+      <div class="story">
+        <span class="story-title">Listening Before Assuming</span>
+        <p>While leading a project with two associates, I noticed one had become quieter in our daily huddles. Rather than guessing, I spoke with her one-on-one. She shared that she felt I was being more lenient with the other associate — someone I'd worked with longer.</p>
+        <p>Instead of defending myself, I acknowledged why she might perceive it that way. The difference came from familiarity, not expectations. But it was a real signal — differences in communication style can create a perception of unfairness.</p>
+        <p><em>I became more deliberate about consistency — in how I communicated, gave feedback, and checked in with both team members.</em></p>
+      </div>
+
+      <div class="story">
+        <span class="story-title">Ownership Beyond the Brief</span>
+        <p>While designing training for a major software release, I noticed the numbers on a new screen didn't match what the database was actually saving. When I raised it, I was told I'd misunderstood — and asked to adjust the training to match the screen.</p>
+        <p>I tested the feature step-by-step, recorded my screen, and pulled database logs to show exactly where data was being dropped. I translated the issue into business terms — wrong stock numbers, false out-of-stock alerts, wasted inventory — and brought QA in to verify.</p>
+        <p><em>Engineering fixed the bug before launch, we shipped training on time, and the product lead began involving our team earlier in future releases.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROFESSIONAL JOURNEY
+     ============================================================ -->
+<section id="journey" class="reveal">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Professional Journey</span>
+      <h2>Eleven years, one consistent thread: learning that works.</h2>
+    </div>
+
+    <div class="journey-list">
+      <div class="journey-item">
+        <h3>Walmart — Manager, Learning &amp; Development</h3>
+        <p class="role-meta">May 2024 – Present</p>
+        <p>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. Lead sprint planning, resource allocation, and team capability development.</p>
+      </div>
+
+      <div class="journey-item">
+        <h3>Walmart — Senior Instructional Designer</h3>
+        <p class="role-meta">Nov 2019 – Apr 2024</p>
+        <p>Led end-to-end design and delivery of enterprise learning across Global Tech, Supply Chain, Leadership, and Store Operations. Established review practices and mentored instructional designers across the team.</p>
+      </div>
+
+      <div class="journey-item">
+        <h3>Blue Yonder — Instructional Designer, Intermediate</h3>
+        <p class="role-meta">Jan 2017 – Nov 2019</p>
+        <p>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning. Designed certification assessments with L1/L2 evaluation.</p>
+      </div>
+
+      <div class="journey-item">
+        <h3>Edukera — Instructional Designer</h3>
+        <p class="role-meta">Oct 2014 – Dec 2016</p>
+        <p>Created e-learning materials — installation guides, workbooks, lab documents, quizzes — collaborating with SMEs and graphic designers to deliver learning through the LMS.</p>
       </div>
     </div>
   </div>
@@ -444,7 +637,6 @@ footer {
 
 <!-- ============================================================
      SELECTED WORK — CASE STUDIES
-     Click a card to expand full case study
      ============================================================ -->
 <section id="work" class="reveal">
   <div class="wrap">
@@ -456,7 +648,6 @@ footer {
 
     <div class="case-grid">
 
-      <!-- ============ CASE STUDY 1 ============ -->
       <article class="case-card" data-case>
         <div class="case-top">
           <div>
@@ -488,7 +679,6 @@ footer {
         </div>
       </article>
 
-      <!-- ============ CASE STUDY 2 ============ -->
       <article class="case-card" data-case>
         <div class="case-top">
           <div>
@@ -529,7 +719,6 @@ footer {
         </div>
       </article>
 
-      <!-- ============ CASE STUDY 3 ============ -->
       <article class="case-card" data-case>
         <div class="case-top">
           <div>
@@ -569,7 +758,6 @@ footer {
         </div>
       </article>
 
-      <!-- ============ CASE STUDY 4 ============ -->
       <article class="case-card" data-case>
         <div class="case-top">
           <div>
@@ -616,131 +804,100 @@ footer {
 </section>
 
 <!-- ============================================================
-     HOW I THINK
+     SKILLS
      ============================================================ -->
-<section id="approach" class="how-i-think reveal">
+<section class="skills reveal">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">How I Think About Learning</span>
-      <h2>I start with the business problem — not the content.</h2>
+      <span class="eyebrow">Skills</span>
+      <h2>What I bring to a team.</h2>
+      <p>A mix of strategic thinking, design craft, and hands-on tooling.</p>
     </div>
 
-    <div class="think-grid">
-      <div class="think-body">
-        <p class="think-quote">
-          "The success measure isn't, <span>'Did they complete the course?'</span>
-          It's whether they can look at a business situation, make a sound decision,
-          and explain why."
-        </p>
-        <p>Too often, learning starts with "what content do we need to teach?" I start with a different question: <em>what should people do differently — and what experience will help them get there?</em></p>
-        <p>That means working backwards from behaviours, blending digital learning with authentic application, and treating assessment as a chance to practise the real decision — not recall a definition.</p>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <h4>Strategy &amp; Leadership</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Learning Strategy</span>
+          <span class="skill-tag">Program Management</span>
+          <span class="skill-tag">Stakeholder Management</span>
+          <span class="skill-tag">Capability Development</span>
+          <span class="skill-tag">Team Mentoring</span>
+          <span class="skill-tag">Learning Consulting</span>
+        </div>
       </div>
 
-      <div class="framework">
-        <h4>The Framework I Use</h4>
-        <div class="fw-step">
-          <div class="fw-num">1</div>
-          <div><strong>Learn</strong><span>Focused foundational knowledge — only what's needed on the job.</span></div>
-        </div>
-        <div class="fw-step">
-          <div class="fw-num">2</div>
-          <div><strong>Experience</strong><span>Realistic scenarios using real tools. Makes the thinking visible.</span></div>
-        </div>
-        <div class="fw-step">
-          <div class="fw-num">3</div>
-          <div><strong>Assess</strong><span>Application-based decisions — a chance to practise the actual call they'll make.</span></div>
+      <div class="skill-card">
+        <h4>Design &amp; Development</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Instructional Design</span>
+          <span class="skill-tag">Curriculum Development</span>
+          <span class="skill-tag">Adult Learning Principles</span>
+          <span class="skill-tag">Storyboarding</span>
+          <span class="skill-tag">Assessment Design</span>
+          <span class="skill-tag">Quality Assurance</span>
         </div>
       </div>
+
+      <div class="skill-card">
+        <h4>AI &amp; Innovation</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Generative AI</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">AI-Assisted Learning Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Tools &amp; Platforms</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Articulate Storyline &amp; Rise</span>
+          <span class="skill-tag">Adobe Captivate</span>
+          <span class="skill-tag">Elucidat</span>
+          <span class="skill-tag">Adobe XD</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Canva</span>
+          <span class="skill-tag">Cornerstone</span>
+          <span class="skill-tag">Moodle</span>
+          <span class="skill-tag">uLearn</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Ways of Working</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Agile Project Management</span>
+          <span class="skill-tag">Cross-functional Collaboration</span>
+          <span class="skill-tag">Process Improvement</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Storytelling</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <h4>Certifications</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Google AI Professional</span>
+          <span class="skill-tag">Google Project Management</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     PROFESSIONAL JOURNEY
-     ============================================================ -->
-<section id="journey" class="reveal">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Professional Journey</span>
-      <h2>Eleven years, one consistent thread: learning that works.</h2>
-    </div>
-
-    <div class="journey-list">
-      <div class="journey-item">
-        <h3>Walmart — Manager, Learning &amp; Development</h3>
-        <p class="role-meta">May 2024 – Present</p>
-        <p>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. Lead sprint planning, resource allocation, and team capability development.</p>
-      </div>
-
-      <div class="journey-item">
-        <h3>Walmart — Senior Instructional Designer</h3>
-        <p class="role-meta">Nov 2019 – Apr 2024</p>
-        <p>Led end-to-end design and delivery of enterprise learning across Global Tech, Supply Chain, Leadership, and Store Operations. Established review practices and mentored instructional designers across the team.</p>
-      </div>
-
-      <div class="journey-item">
-        <h3>Blue Yonder — Instructional Designer, Intermediate</h3>
-        <p class="role-meta">Jan 2017 – Nov 2019</p>
-        <p>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning. Designed certification assessments with L1/L2 evaluation.</p>
-      </div>
-
-      <div class="journey-item">
-        <h3>Edukera — Instructional Designer</h3>
-        <p class="role-meta">Oct 2014 – Dec 2016</p>
-        <p>Created e-learning materials — installation guides, workbooks, lab documents, quizzes — collaborating with SMEs and graphic designers to deliver learning through the LMS.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     BEYOND THE ROLE — delete this whole section if you want
-     ============================================================ -->
-<section class="beyond reveal">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Beyond the Role</span>
-      <h2>Moments that shaped how I lead.</h2>
-      <p>Because learning leadership isn't only about design — it's about judgment, ownership, and people.</p>
-    </div>
-
-    <div class="stories">
-      <div class="story">
-        <span class="story-title">Listening Before Assuming</span>
-        <p>While leading a project with two associates, I noticed one had become quieter in our daily huddles. Rather than guessing, I spoke with her one-on-one. She shared that she felt I was being more lenient with the other associate — someone I'd worked with longer.</p>
-        <p>Instead of defending myself, I acknowledged why she might perceive it that way. The difference came from familiarity, not expectations. But it was a real signal — differences in communication style can create a perception of unfairness.</p>
-        <p><em>I became more deliberate about consistency — in how I communicated, gave feedback, and checked in with both team members.</em></p>
-      </div>
-
-      <div class="story">
-        <span class="story-title">Ownership Beyond the Brief</span>
-        <p>While designing training for a major software release, I noticed the numbers on a new screen didn't match what the database was actually saving. When I raised it, I was told I'd misunderstood — and asked to adjust the training to match the screen.</p>
-        <p>I tested the feature step-by-step, recorded my screen, and pulled database logs to show exactly where data was being dropped. I translated the issue into business terms — wrong stock numbers, false out-of-stock alerts, wasted inventory — and brought QA in to verify.</p>
-        <p><em>Engineering fixed the bug before launch, we shipped training on time, and the product lead began involving our team earlier in future releases.</em></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     RECOGNITION
+     RECOGNITION & CREDENTIALS
      ============================================================ -->
 <section class="reveal">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Recognition &amp; Credentials</span>
-      <h2>Certifications, awards, and education.</h2>
+      <h2>Awards, education, and a few moments worth noting.</h2>
     </div>
 
     <div class="recog-grid">
-      <div class="recog-card">
-        <h4>Certifications</h4>
-        <ul>
-          <li>Google AI Professional Certification</li>
-          <li>Google Project Management Professional Certification</li>
-        </ul>
-      </div>
-
       <div class="recog-card">
         <h4>Recognition</h4>
         <ul>
@@ -749,6 +906,7 @@ footer {
           <li>Multiple Spot Awards</li>
           <li>Crystal Ball VR Showcase — brioVR scenario</li>
           <li>Stretch assignment completed with 100% satisfaction</li>
+          <li>Facilitated instructional design workshops &amp; training sessions</li>
         </ul>
       </div>
 
@@ -758,13 +916,14 @@ footer {
           <li>Bachelor of Engineering — Information Science</li>
           <li>2014 · Aggregate 76%</li>
         </ul>
-        <h4 style="margin-top:24px;">Core Tools</h4>
+      </div>
+
+      <div class="recog-card">
+        <h4>Also Worth Noting</h4>
         <ul>
-          <li>Articulate Storyline &amp; Rise</li>
-          <li>Adobe Captivate · Elucidat</li>
-          <li>Adobe XD · Figma · Canva</li>
-          <li>Cornerstone · Moodle · uLearn</li>
-          <li>Generative AI · Prompt Engineering</li>
+          <li>Engineering background — brings a systems mindset to learning design</li>
+          <li>Partnered with tech teams on AI-powered capstone experiences</li>
+          <li>Mentored instructional designers through onboarding and JIT trainings</li>
         </ul>
       </div>
     </div>
@@ -795,14 +954,12 @@ footer {
 
 <script>
 /* ============================================================
-   CASE STUDY TOGGLE — click to expand/collapse
+   CASE STUDY TOGGLE
    ============================================================ */
 document.querySelectorAll('[data-case]').forEach(card => {
   card.addEventListener('click', () => {
     const isOpen = card.getAttribute('open-state') === 'true';
-    // Close all first
     document.querySelectorAll('[data-case]').forEach(c => c.setAttribute('open-state', 'false'));
-    // Open this one if it wasn't already open
     if (!isOpen) card.setAttribute('open-state', 'true');
   });
 });
@@ -820,6 +977,18 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+/* ============================================================
+   BACK TO TOP — show/hide on scroll
+   ============================================================ */
+const toTop = document.getElementById('toTop');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    toTop.classList.add('show');
+  } else {
+    toTop.classList.remove('show');
+  }
+});
 </script>
 
 </body>
