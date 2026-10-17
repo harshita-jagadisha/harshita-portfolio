@@ -327,7 +327,39 @@ nav {
   letter-spacing: 0.03em; margin-bottom: 10px;
 }
 .journey-item p { font-size: 0.95rem; color: var(--grey); }
+/* The main company name */
+.journey-item h3 {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
 
+/* The total tenure at the company */
+.company-tenure {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 16px;
+}
+
+/* The specific job title inside the company */
+.role-title {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+/* The dates for the specific role */
+.role-meta {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--amber-dark);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
 /* ============================================================
    CASE STUDIES
    ============================================================ */
@@ -591,29 +623,47 @@ footer {
     </div>
 
     <div class="journey-list">
-      <div class="journey-item">
-        <h3>Walmart — Manager, Learning &amp; Development</h3>
-        <p class="role-meta">May 2024 – Present</p>
-        <p>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. Lead sprint planning, resource allocation, and team capability development.</p>
+      
+      <!-- WALMART (Grouped) -->
+      <div class="journey-item journey-group">
+        <h3>Walmart</h3>
+        <p class="company-tenure">Nov 2019 – Present</p>
+        
+        <div class="role">
+          <h4 class="role-title">Manager, Learning & Development</h4>
+          <p class="role-meta">May 2024 – Present</p>
+          <p>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. Lead sprint planning, resource allocation, and team capability development.</p>
+        </div>
+        
+        <div class="role" style="margin-top: 24px;">
+          <h4 class="role-title">Senior Instructional Designer</h4>
+          <p class="role-meta">Nov 2019 – Apr 2024</p>
+          <p>Led end-to-end design and delivery of enterprise learning across Global Tech, Supply Chain, Leadership, and Store Operations. Established review practices and mentored instructional designers across the team.</p>
+        </div>
       </div>
 
+      <!-- BLUE YONDER -->
       <div class="journey-item">
-        <h3>Walmart — Senior Instructional Designer</h3>
-        <p class="role-meta">Nov 2019 – Apr 2024</p>
-        <p>Led end-to-end design and delivery of enterprise learning across Global Tech, Supply Chain, Leadership, and Store Operations. Established review practices and mentored instructional designers across the team.</p>
+        <h3>Blue Yonder</h3>
+        <p class="company-tenure">Jan 2017 – Nov 2019</p>
+        
+        <div class="role" style="margin-top: 16px;">
+          <h4 class="role-title">Instructional Designer, Intermediate</h4>
+          <p>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning. Designed certification assessments with L1/L2 evaluation.</p>
+        </div>
       </div>
 
+      <!-- EDUKERA -->
       <div class="journey-item">
-        <h3>Blue Yonder — Instructional Designer, Intermediate</h3>
-        <p class="role-meta">Jan 2017 – Nov 2019</p>
-        <p>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning. Designed certification assessments with L1/L2 evaluation.</p>
+        <h3>Edukera</h3>
+        <p class="company-tenure">Oct 2014 – Dec 2016</p>
+        
+        <div class="role" style="margin-top: 16px;">
+          <h4 class="role-title">Instructional Designer</h4>
+          <p>Created e-learning materials — installation guides, workbooks, lab documents, quizzes — collaborating with SMEs and graphic designers to deliver learning through the LMS.</p>
+        </div>
       </div>
 
-      <div class="journey-item">
-        <h3>Edukera — Instructional Designer</h3>
-        <p class="role-meta">Oct 2014 – Dec 2016</p>
-        <p>Created e-learning materials — installation guides, workbooks, lab documents, quizzes — collaborating with SMEs and graphic designers to deliver learning through the LMS.</p>
-      </div>
     </div>
   </div>
 </section>
