@@ -296,16 +296,19 @@ nav {
   margin-bottom: 2px;
 }
 .role-meta {
-  ont-family: var(--font-body);
+  font-family: var(--font-body);
   font-size: 0.8rem;
-  color: var(--amber); /* Bright yellow */
+  color: var(--amber) !important; /* Forces it to be bright yellow */
   font-weight: 600;
   letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
-.journey-item p { font-size: 0.95rem;
+
+.journey-item p { 
+  font-size: 0.95rem;
   color: var(--grey);
-  margin-bottom: 8px; }
+  margin-bottom: 8px; 
+}
 
    .role-bullets {
   margin-top: 8px;
@@ -623,12 +626,12 @@ footer {
       <!-- BLUE YONDER -->
       <div class="journey-item">
         <h3>Blue Yonder</h3>
-        <p class="role-meta" style="margin-bottom: 24px;">Jan 2017 – Nov 2019</p>
+        <p class="role-meta" style="margin-bottom: 16px;">Jan 2017 – Nov 2019</p>
         
         <div class="role">
           <h4 class="role-title">Instructional Designer, Intermediate</h4>
-          <p class="role-meta">Jan 2017 – Nov 2019</p>
-          <ul class="role-bullets">
+          <!-- Dates removed here to avoid repeating -->
+          <ul class="role-bullets" style="margin-top: 8px;">
             <li>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning.</li>
             <li>Designed certification assessments with L1/L2 evaluation.</li>
           </ul>
@@ -638,12 +641,12 @@ footer {
       <!-- EDUKERA -->
       <div class="journey-item">
         <h3>Edukera</h3>
-        <p class="role-meta" style="margin-bottom: 24px;">Oct 2014 – Dec 2016</p>
+        <p class="role-meta" style="margin-bottom: 16px;">Oct 2014 – Dec 2016</p>
         
         <div class="role">
           <h4 class="role-title">Instructional Designer</h4>
-          <p class="role-meta">Oct 2014 – Dec 2016</p>
-          <ul class="role-bullets">
+          <!-- Dates removed here to avoid repeating -->
+          <ul class="role-bullets" style="margin-top: 8px;">
             <li>Created e-learning materials, including installation guides, workbooks, lab documents, and quizzes.</li>
             <li>Collaborated with SMEs and graphic designers to deliver learning through the LMS.</li>
           </ul>
