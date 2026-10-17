@@ -296,12 +296,17 @@ nav {
   margin-bottom: 2px;
 }
 .role-meta {
-  font-family: var(--font-body);
+  font-family: var(--font-body) !important; /* Forces it to use Inter (sans-serif) */
   font-size: 0.8rem;
-  color: var(--amber-dark) !important; /* Forces it to be bright yellow */
+  color: var(--amber-dark) !important; /* The rich gold color */
   font-weight: 600;
-  letter-spacing: 0.03em;
+  text-transform: uppercase; /* Makes the dates all-caps like the heading */
+  letter-spacing: 0.08em; /* Spreads the letters out slightly */
   margin-bottom: 10px;
+}
+   .company-tenure {
+  color: var(--grey) !important; /* Forces the soft grey color */
+  font-weight: 500; /* Makes it a little lighter so it doesn't compete with the yellow dates */
 }
 
 .journey-item p { 
@@ -602,7 +607,7 @@ footer {
       <!-- WALMART (Grouped) -->
       <div class="journey-item journey-group">
         <h3>Walmart</h3>
-        <p class="role-meta" style="margin-bottom: 24px;">NOV 2019 – AUG 2026</p>
+        <p class="role-meta company-tenure" style="margin-bottom: 24px;">NOV 2019 – AUG 2026</p>
         
         <div class="role">
           <h4 class="role-title">Manager, Learning &amp; Development</h4>
