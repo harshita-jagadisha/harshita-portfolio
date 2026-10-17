@@ -284,8 +284,8 @@ nav {
 }
 .company-tenure {
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--amber);
+  font-size: 0.8rem; /* Slightly smaller */
+  color: var(--amber); /* Bright yellow */
   font-weight: 600;
   margin-bottom: 16px;
 }
@@ -296,14 +296,33 @@ nav {
   margin-bottom: 2px;
 }
 .role-meta {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  color: var(--amber-dark);
+  ont-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--amber); /* Bright yellow */
   font-weight: 600;
   letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
-.journey-item p { font-size: 0.95rem; color: var(--grey); }
+.journey-item p { font-size: 0.95rem;
+  color: var(--grey);
+  margin-bottom: 8px; }
+
+   .role-bullets {
+  margin-top: 8px;
+  padding-left: 18px; /* Indents the bullets */
+}
+
+   .role-bullets li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--grey); /* Soft grey as requested */
+  margin-bottom: 6px; /* Space between bullets */
+  line-height: 1.6;
+}
+
+.role-bullets li::marker {
+  color: var(--grey); /* Makes the dot itself soft grey too */
+}
 
 /* ============================================================
    PORTFOLIO (CASE STUDIES)
@@ -580,13 +599,15 @@ footer {
       <!-- WALMART (Grouped) -->
       <div class="journey-item journey-group">
         <h3>Walmart</h3>
-        <p class="company-tenure">Nov 2019 – Aug 2026</p>
+        <p class="company-tenure">Nov 2019 – Present</p>
         
         <div class="role">
           <h4 class="role-title">Manager, Learning &amp; Development</h4>
-          <p class="role-meta">May 2024 – Aug 2026</p>
-          <p><li>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. </p><li>
-           <li>Lead sprint planning, resource allocation, and team capability development.</li></p>
+          <p class="role-meta">May 2024 – Present</p>
+          <ul class="role-bullets">
+            <li>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities.</li>
+            <li>Lead sprint planning, resource allocation, and team capability development.</li>
+          </ul>
         </div>
         
         <div class="role" style="margin-top: 24px;">
