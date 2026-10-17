@@ -63,7 +63,7 @@ h1, h2, h3, h4 {
   color: var(--charcoal);
 }
 h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); }
-h2 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); margin-bottom: 14px; }
+h2 { font-size: clamp(1.15rem, 1.6vw, 1.25rem); margin-bottom: 8px; }
 h3 { font-size: 1.35rem; margin-bottom: 10px; }
 h4 { font-size: 1.05rem; }
 p  { color: var(--charcoal-2); font-family: var(--font-body); }
@@ -315,7 +315,12 @@ nav {
   width: 16px; height: 16px; border-radius: 50%;
   background: var(--ivory); border: 3px solid var(--amber);
 }
-.journey-item h3 { margin-bottom: 4px; }
+.journey-item h3 {
+   font-family: var(--font-body); /* Switches to Inter */
+  font-size: 1.15rem; /* Adjust size if needed to match the body */
+  font-weight: 700; /* Makes it bold */
+  margin-bottom: 4px; 
+}
 .journey-item .role-meta {
   font-family: var(--font-body);
   font-size: 0.85rem; color: var(--amber-dark); font-weight: 600;
