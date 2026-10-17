@@ -268,6 +268,13 @@ nav {
 #journey {
   background-color: var(--soft-grey);
 }
+
+/* ============================================================
+   JOURNEY
+   ============================================================ */
+#journey {
+  background-color: var(--soft-grey);
+}
 .journey-list { border-left: 2px solid var(--border); padding-left: 32px; margin-left: 8px; }
 .journey-item { position: relative; padding-bottom: 36px; }
 .journey-item:last-child { padding-bottom: 0; }
@@ -276,64 +283,58 @@ nav {
   width: 16px; height: 16px; border-radius: 50%;
   background: var(--soft-grey); border: 3px solid var(--amber);
 }
+
+/* Company Name */
 .journey-item h3 {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 2px;
 }
+
+/* 1. COMPANY TENURE (Matches "Onboarding Experience") */
 .company-tenure {
   font-family: var(--font-body);
-  font-size: 0.8rem; /* Slightly smaller */
-  color: var(--amber); /* Bright yellow */
-  font-weight: 600;
-  margin-bottom: 16px;
+  font-size: 0.72rem; /* Same small size */
+  font-weight: 700; /* Bold */
+  letter-spacing: 0.1em; /* Spaced out */
+  text-transform: uppercase; /* ALL CAPS */
+  color: var(--amber-dark); /* The gold color */
+  margin-bottom: 24px;
 }
+
+/* Job Title */
 .role-title {
   font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 2px;
 }
+
+/* 2. ROLE TENURE (Matches Body/Bullets) */
 .role-meta {
   font-family: var(--font-body);
-  font-size: 0.85rem; 
+  font-size: 0.95rem; /* Same as body */
+  font-weight: 400; /* Normal weight */
   color: var(--grey); /* Soft grey */
-  font-weight: 400; 
   margin-bottom: 8px;
+  text-transform: none; /* No uppercase */
 }
 
-/* For the top company dates (Walmart, Blue Yonder) - Yellow */
-.company-tenure {
-  color: var(--amber-dark) !important; /* Brings the yellow back */
-  font-weight: 600; /* Makes it a little bolder to stand out */
-}
-   .company-tenure {
-  color: var(--grey) !important; /* Forces the soft grey color */
-  font-weight: 500; /* Makes it a little lighter so it doesn't compete with the yellow dates */
-}
-
-.journey-item p { 
-  font-size: 0.95rem;
-  color: var(--grey);
-  margin-bottom: 8px; 
-}
-
-   .role-bullets {
+/* Bullets */
+.role-bullets {
   margin-top: 8px;
-  padding-left: 18px; /* Indents the bullets */
+  padding-left: 18px;
 }
-
-   .role-bullets li {
+.role-bullets li {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--grey); /* Soft grey as requested */
-  margin-bottom: 6px; /* Space between bullets */
+  color: var(--grey);
+  margin-bottom: 6px;
   line-height: 1.6;
 }
-
 .role-bullets li::marker {
-  color: var(--grey); /* Makes the dot itself soft grey too */
+  color: var(--grey);
 }
 
 /* ============================================================
@@ -611,11 +612,11 @@ footer {
       <!-- WALMART (Grouped) -->
       <div class="journey-item journey-group">
         <h3>Walmart</h3>
-        <p class="role-meta company-tenure" style="margin-bottom: 24px;">Nov 2019 – Aug 2026</p>
+        <p class="company-tenure">Nov 2019 – Present</p>
         
         <div class="role">
           <h4 class="role-title">Manager, Learning &amp; Development</h4>
-          <p class="role-meta company-tenure">May 2024 – Aug 2026</p>
+          <p class="role-meta">May 2024 – Present</p>
           <ul class="role-bullets">
             <li>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities.</li>
             <li>Lead sprint planning, resource allocation, and team capability development.</li>
@@ -624,7 +625,7 @@ footer {
         
         <div class="role" style="margin-top: 24px;">
           <h4 class="role-title">Senior Instructional Designer</h4>
-          <p class="role-meta company-tenure">Nov 2019 – Apr 2024</p>
+          <p class="role-meta">Nov 2019 – Apr 2024</p>
           <ul class="role-bullets">
             <li>Led end-to-end design and delivery of enterprise learning across Global Tech, Supply Chain, Leadership, and Store Operations.</li>
             <li>Established review practices and mentored instructional designers across the team.</li>
@@ -635,12 +636,11 @@ footer {
       <!-- BLUE YONDER -->
       <div class="journey-item">
         <h3>Blue Yonder</h3>
-        <p class="role-meta company-tenure" style="margin-bottom: 16px;">Jan 2017 – Nov 2019</p>
+        <p class="company-tenure">Jan 2017 – Nov 2019</p>
         
-        <div class="role">
+        <div class="role" style="margin-top: 8px;">
           <h4 class="role-title">Instructional Designer, Intermediate</h4>
-          <!-- Dates removed here to avoid repeating -->
-          <ul class="role-bullets" style="margin-top: 8px;">
+          <ul class="role-bullets">
             <li>Designed learning deliverables for functional and technical WBTs and ILTs, partnering with global SMEs to translate complex product requirements into engaging learning.</li>
             <li>Designed certification assessments with L1/L2 evaluation.</li>
           </ul>
@@ -650,12 +650,11 @@ footer {
       <!-- EDUKERA -->
       <div class="journey-item">
         <h3>Edukera</h3>
-        <p class="role-meta" style="margin-bottom: 16px;">Oct 2014 – Dec 2016</p>
+        <p class="company-tenure">Oct 2014 – Dec 2016</p>
         
-        <div class="role">
+        <div class="role" style="margin-top: 8px;">
           <h4 class="role-title">Instructional Designer</h4>
-          <!-- Dates removed here to avoid repeating -->
-          <ul class="role-bullets" style="margin-top: 8px;">
+          <ul class="role-bullets">
             <li>Created e-learning materials, including installation guides, workbooks, lab documents, and quizzes.</li>
             <li>Collaborated with SMEs and graphic designers to deliver learning through the LMS.</li>
           </ul>
