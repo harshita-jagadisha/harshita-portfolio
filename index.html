@@ -12,7 +12,7 @@
 
 <style>
 /* ============================================================
-   THEME VARIABLES — EDIT COLORS HERE
+   THEME VARIABLES
    ============================================================ */
 :root {
   --charcoal:   #1A1A1A;
@@ -21,6 +21,7 @@
   --amber-dark: #C9871F;
   --ivory:      #FDFBF7;
   --white:      #FFFFFF;
+  --soft-grey:  #F8F8F6;
   --grey:       #6B6B6B;
   --border:     #EAE6DE;
   --max-w:      1120px;
@@ -50,7 +51,7 @@ img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
 section { padding: 60px 0; }
-@media (max-width: 720px) { section { padding: 60px 0; } body { font-size: 16px; } }
+@media (max-width: 720px) { section { padding: 50px 0; } body { font-size: 16px; } }
 
 /* ============================================================
    TYPOGRAPHY
@@ -90,7 +91,7 @@ p  { color: var(--charcoal-2); font-family: var(--font-body); }
    ============================================================ */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(253,251,247,0.88);
+  background: rgba(248,248,246,0.88); /* Matches soft-grey hero */
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -137,7 +138,11 @@ nav {
 /* ============================================================
    HERO
    ============================================================ */
-.hero { padding: 80px 0 60px; position: relative; }
+.hero { 
+  padding: 80px 0 60px; 
+  position: relative; 
+  background-color: var(--soft-grey);
+}
 .hero-grid {
   display: grid; grid-template-columns: 1.4fr 1fr; gap: 60px; align-items: center;
 }
@@ -161,7 +166,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -90px;
+  margin-top: -80px;
 }
 
 .hero-photo {
@@ -189,33 +194,7 @@ nav {
   width: 100%;
   max-width: 500px;
 }
-   .keyword-list span {
-  display: block;
-  text-align: center;
-}
-.keyword-list li {
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: var(--charcoal-2);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-.keyword-list li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.keyword-list li::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  background: var(--amber);
-  border-radius: 50%;
-  flex-shrink: 0;
-}
+.keyword-list span { display: block; text-align: center; }
 
 @media (max-width: 820px) {
   .hero-grid { grid-template-columns: 1fr; gap: 40px; text-align: left; }
@@ -229,10 +208,6 @@ nav {
    ============================================================ */
 .about {
   background: var(--white);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding-top: 50px;
-  padding-bottom: 50px;
 }
 .about-intro { max-width: 780px; margin-bottom: 60px; }
 .about-intro p { font-size: 1.05rem; margin-bottom: 16px; color: var(--charcoal-2); }
@@ -245,42 +220,38 @@ nav {
 }
 .subsection-head h3 {
   font-family: var(--font-head);
-  font-size: clamp(1.15rem, 1.6vw, 1.25rem); /* Reduces the size */
+  font-size: clamp(1.15rem, 1.6vw, 1.25rem);
   font-weight: 600;
-  margin-bottom: 6px; /* Tightens the space below it slightly */
+  margin-bottom: 6px;
 }
 .subsection-head p { color: var(--charcoal); font-size: 1rem; max-width: 640px; }
 
-   .approach-sub {
-  margin-bottom: 24px; /* Creates space above the quote */
-}
+.approach-sub { margin-bottom: 24px; }
 
 .approach-quote {
   font-family: var(--font-head);
   font-size: 1.05rem;
   font-style: italic;
   color: var(--charcoal);
-  border-left: 3px solid var(--amber);
-  padding-left: 18px;
   line-height: 1.5;
   margin-top: 24px;
   margin-bottom: 32px;
-  
-  /* THE ALIGNMENT FIX */
-  margin-left: -21px; /* Pulls the text left to match the paragraphs above */
-  max-width: 780px;   /* Matches the exact width of the text above */
+  margin-left: -21px; 
+  max-width: 780px;
+  border-left: 3px solid var(--amber);
+  padding-left: 18px;
 }
 
 .approach-footer {
-  font-size: 0.95rem !important; /* Slightly smaller to look like a lead-in */
+  font-size: 0.95rem !important;
   color: var(--charcoal) !important;
 }
 
-.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 20px; }
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 @media (max-width: 820px) { .pillars { grid-template-columns: 1fr; } }
 .pillar {
   padding: 28px 26px; border: 1px solid var(--border); border-radius: var(--radius);
-  background: var(--ivory); transition: all .25s ease;
+  background: var(--soft-grey); transition: all .25s ease;
 }
 .pillar:hover { border-color: var(--amber); transform: translateY(-4px); box-shadow: var(--shadow); }
 .pillar-num {
@@ -291,53 +262,38 @@ nav {
 .pillar h4 { font-size: 1.15rem; margin-bottom: 10px; font-family: var(--font-head); }
 .pillar p { font-size: 0.94rem; color: var(--grey); }
 
-.story p { font-size: 0.94rem; margin-bottom: 12px; color: var(--charcoal-2); }
-.story p:last-child { margin-bottom: 0; }
-.story em { font-style: italic; color: var(--charcoal); font-weight: 500; }
-
 /* ============================================================
    JOURNEY
    ============================================================ */
+#journey {
+  background-color: var(--soft-grey);
+}
 .journey-list { border-left: 2px solid var(--border); padding-left: 32px; margin-left: 8px; }
 .journey-item { position: relative; padding-bottom: 36px; }
 .journey-item:last-child { padding-bottom: 0; }
 .journey-item::before {
   content: ''; position: absolute; left: -41px; top: 6px;
   width: 16px; height: 16px; border-radius: 50%;
-  background: var(--ivory); border: 3px solid var(--amber);
+  background: var(--soft-grey); border: 3px solid var(--amber);
 }
-
-.journey-item .role-meta {
-  font-family: var(--font-body);
-  font-size: 0.85rem; color: var(--amber-dark); font-weight: 600;
-  letter-spacing: 0.03em; margin-bottom: 10px;
-}
-.journey-item p { font-size: 0.95rem; color: var(--grey); }
-/* The main company name */
 .journey-item h3 {
   font-family: var(--font-body);
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 2px;
 }
-
-/* The total tenure at the company */
 .company-tenure {
   font-family: var(--font-body);
   font-size: 0.85rem;
   color: var(--grey);
   margin-bottom: 16px;
 }
-
-/* The specific job title inside the company */
 .role-title {
   font-family: var(--font-body);
   font-size: 1.05rem;
   font-weight: 600;
   margin-bottom: 2px;
 }
-
-/* The dates for the specific role */
 .role-meta {
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -346,17 +302,19 @@ nav {
   letter-spacing: 0.03em;
   margin-bottom: 10px;
 }
-   #portfolio {
-  border-top: 1px solid var(--border);
-}
+.journey-item p { font-size: 0.95rem; color: var(--grey); }
+
 /* ============================================================
-   CASE STUDIES
+   PORTFOLIO (CASE STUDIES)
    ============================================================ */
+#portfolio {
+  background-color: var(--white);
+}
 .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 @media (max-width: 820px) { .case-grid { grid-template-columns: 1fr; } }
 
 .case-card {
-  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--soft-grey); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 30px 30px 26px; cursor: pointer; transition: all .25s ease;
   position: relative;
 }
@@ -381,7 +339,7 @@ nav {
 }
 .case-toggle {
   width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
-  background: var(--ivory); border: 1px solid var(--border);
+  background: var(--white); border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.2rem; color: var(--charcoal); transition: all .25s;
 }
@@ -416,13 +374,13 @@ nav {
 .tool-tag {
   font-family: var(--font-body);
   font-size: 0.76rem; padding: 5px 11px; border: 1px solid var(--border);
-  border-radius: 6px; color: var(--grey); background: var(--ivory);
+  border-radius: 6px; color: var(--grey); background: var(--white);
 }
 
 .lea { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0 6px; }
 .lea-step {
   padding: 14px; border-radius: 10px; text-align: center;
-  background: var(--ivory); border: 1px solid var(--border);
+  background: var(--white); border: 1px solid var(--border);
 }
 .lea-step strong { display: block; font-size: 0.88rem; margin-bottom: 4px; color: var(--charcoal); }
 .lea-step span { font-size: 0.78rem; color: var(--grey); }
@@ -431,14 +389,16 @@ nav {
 /* ============================================================
    SKILLS
    ============================================================ */
-.skills { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.skills { 
+  background-color: var(--soft-grey); 
+}
 .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 @media (max-width: 900px) { .skills-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .skills-grid { grid-template-columns: 1fr; } }
 
 .skill-card {
   padding: 26px 24px; border: 1px solid var(--border);
-  border-radius: var(--radius); background: var(--ivory);
+  border-radius: var(--radius); background: var(--white);
 }
 .skill-card h4 {
   font-family: var(--font-body);
@@ -449,18 +409,21 @@ nav {
 .skill-tag {
   font-family: var(--font-body);
   font-size: 0.82rem; padding: 6px 12px;
-  background: var(--white); border: 1px solid var(--border);
+  background: var(--soft-grey); border: 1px solid var(--border);
   border-radius: 999px; color: var(--charcoal-2);
 }
 
 /* ============================================================
    RECOGNITION
    ============================================================ */
+.recognition-section {
+  background-color: var(--white);
+}
 .recog-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
 @media (max-width: 820px) { .recog-grid { grid-template-columns: 1fr; } }
 .recog-card {
   padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);
-  background: var(--white);
+  background: var(--soft-grey);
 }
 .recog-card h4 {
   font-family: var(--font-body);
@@ -561,18 +524,18 @@ footer {
      ============================================================ -->
 <section id="about" class="about reveal">
   <div class="wrap">
- <div class="section-head" style="margin-bottom: 20px;">
+    <div class="section-head" style="margin-bottom: 20px;">
       <span class="eyebrow" style="margin-bottom: 0;">About Me</span>
     </div>
 
     <div class="about-intro">
-      <p><strong>Most L&D portfolios start with the same sentence: "I design learning experiences." Mine starts somewhere different.</strong></p>
+      <p><strong>Most L&amp;D portfolios start with the same sentence: "I design learning experiences." Mine starts somewhere different.</strong></p>
       <p>I start with the business problem. What does the organization need people to do differently? What's getting in the way? Only then does learning become the answer. That's how I've approached the work across leadership, onboarding, career development, and AI-enabled learning. I don't design courses. I design performance.</p>
       <p>I take ownership seriously. When I lead a program, I see it through end to end, from strategy and stakeholder alignment to execution and quality. I'm comfortable managing multiple workstreams at once, and I'm the kind of person teams can count on when priorities shift or things get ambiguous.</p>
       <p>I'm also genuinely interested in how emerging tools, especially AI, are reshaping learning, and I'd rather help shape that shift than watch it happen.</p>
     </div>
 
-     <div class="subsection-head">
+    <div class="subsection-head">
       <h3>How I approach the work</h3>
       <p class="approach-sub">I start with the business problem, not the content.</p>
       
@@ -619,7 +582,7 @@ footer {
         <p class="company-tenure">Nov 2019 – Present</p>
         
         <div class="role">
-          <h4 class="role-title">Manager, Learning & Development</h4>
+          <h4 class="role-title">Manager, Learning &amp; Development</h4>
           <p class="role-meta">May 2024 – Present</p>
           <p>Partner with business stakeholders to identify capability gaps, define learning strategies, and design learner journeys aligned with business priorities. Lead sprint planning, resource allocation, and team capability development.</p>
         </div>
@@ -658,7 +621,7 @@ footer {
 </section>
 
 <!-- ============================================================
-     SELECTED WORK — CASE STUDIES
+     PORTFOLIO (CASE STUDIES)
      ============================================================ -->
 <section id="portfolio" class="reveal">
   <div class="wrap">
@@ -912,7 +875,7 @@ footer {
 <!-- ============================================================
      RECOGNITION & CREDENTIALS
      ============================================================ -->
-<section class="reveal">
+<section class="reveal recognition-section">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Recognition &amp; Credentials</span>
