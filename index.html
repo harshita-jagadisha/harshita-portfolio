@@ -316,6 +316,19 @@ nav {
   white-space: nowrap; /* Prevents text from breaking awkwardly */
 }
 
+   .case-btn {
+  display: inline-block;
+  margin-top: 20px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  transition: color 0.2s ease;
+}
+.case-card:hover .case-btn {
+  color: var(--amber-dark); /* Turns yellow on hover */
+}
+
 /* Hide the old toggle and body elements since we only want the cards */
 .case-toggle, .case-tag, .case-summary, .case-body {
   display: none !important;
@@ -737,6 +750,7 @@ footer {
             <span class="case-metric">Single source of truth</span>
             <span class="case-metric">Faster time-to-productivity</span>
           </div>
+          <span class="case-btn">Go to case study →</span>
         </div>
       </div>
 
@@ -747,9 +761,10 @@ footer {
           <h3>My Career Path</h3>
           <p class="case-summary">A guided career development programme blending structured learning, on-the-job application, and a capstone.</p>
           <div class="case-metrics-container">
-            <span class="case-metric">73% participation</span>
-            <span class="case-metric">Enterprise scale</span>
+            <span class="case-metric">Experiential Learning</span>
+            <span class="case-metric">Talent Development</span>
           </div>
+          <span class="case-btn">Go to case study →</span>
         </div>
       </div>
 
@@ -760,9 +775,10 @@ footer {
           <h3>Universal Leadership Library</h3>
           <p class="case-summary">An on-demand leadership development experience across six leadership pillars.</p>
           <div class="case-metrics-container">
-            <span class="case-metric">+13.79% unique visitors</span>
-            <span class="case-metric">+14.41% page views</span>
+            <span class="case-metric">Blended Learning</span>
+            <span class="case-metric">Leadership Enablement</span>
           </div>
+          <span class="case-btn">Go to case study →</span>
         </div>
       </div>
 
@@ -773,11 +789,14 @@ footer {
           <h3>Omni Retail Excellence Certification</h3>
           <p class="case-summary">A five-course asynchronous certification building broader retail business acumen.</p>
           <div class="case-metrics-container">
-            <span class="case-metric">116 associates</span>
-            <span class="case-metric">37% completion</span>
+            <span class="case-metric">Certification Development</span>
+            <span class="case-metric">Learner Engagement</span>
           </div>
+          <span class="case-btn">Go to case study →</span>
         </div>
       </div>
+
+    </div>
 
     </div>
   </div>
