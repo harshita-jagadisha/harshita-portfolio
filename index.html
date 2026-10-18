@@ -284,43 +284,13 @@ nav {
 @media (max-width: 640px) { 
   .case-grid { grid-template-columns: 1fr; } 
 }
-
-.case-card {
-  background: var(--white); 
-  border: 1px solid var(--border); 
-  border-radius: var(--radius);
-  padding: 0; 
-  cursor: pointer; 
-  transition: all .25s ease;
-  position: relative;
-  overflow: hidden; 
-  display: flex;
-  flex-direction: column;
-}
-
+  
 .case-card:hover { 
   border-color: var(--amber); 
   box-shadow: var(--shadow); 
   transform: translateY(-4px); 
 }
-
-/* Image Top */
-.case-card-image {
-  width: 100%;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--soft-grey);
-}
-
-/* Content Wrapper */
-.case-content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1; 
-}
-
+  
 .case-card h3 { 
  font-family: var(--font-head) !important; /* Forces Fraunces */
   font-size: 1.05rem !important; 
@@ -411,14 +381,160 @@ nav {
 .case-card:hover .case-toggle { background: var(--amber); border-color: var(--amber); }
 .case-card[open-state="true"] .case-toggle { transform: rotate(45deg); background: var(--amber); border-color: var(--amber); }
 
-/* Expandable Body */
-.case-body {
-  max-height: 0; overflow: hidden; transition: max-height .5s ease, opacity .35s, padding .35s;
-  opacity: 0; padding-top: 0;
-}
 .case-card[open-state="true"] .case-body {
   max-height: 2400px; opacity: 1; padding-top: 28px; margin-top: 24px;
   border-top: 1px solid var(--border);
+}
+
+  /* ============================================================
+   PORTFOLIO (CASE STUDIES) - WITH MODALS
+   ============================================================ */
+#portfolio {
+  background-color: var(--soft-grey);
+}
+
+.case-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; 
+}
+@media (max-width: 1024px) { .case-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .case-grid { grid-template-columns: 1fr; } }
+
+.case-card {
+  background: var(--white); 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius);
+  padding: 0; 
+  cursor: pointer; 
+  transition: all .25s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.case-card:hover { 
+  border-color: var(--amber); 
+  box-shadow: var(--shadow); 
+  transform: translateY(-4px); 
+}
+
+.case-card-image {
+  width: 100%;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--soft-grey);
+}
+
+.case-content {
+  padding: 20px; /* Reduced padding to push title up */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; 
+}
+
+.case-card h3 { 
+  font-family: var(--font-head) !important;
+  font-size: 1.05rem !important; 
+  font-weight: 600 !important; 
+  line-height: 1.3; 
+  margin-bottom: 8px; /* Space between title and summary */
+  margin-top: -4px; /* Pushes title up slightly */
+  flex-grow: 0;
+}
+
+.case-summary {
+  font-size: 0.85rem;
+  color: var(--grey);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.case-metrics-container {
+  margin-top: auto; /* Pushes bubbles to the bottom */
+}
+
+.case-metric {
+  display: inline-block; 
+  padding: 6px 12px; 
+  background: rgba(232,163,61,0.15);
+  color: var(--amber-dark); 
+  font-family: var(--font-body);
+  font-size: 0.72rem; 
+  font-weight: 700; 
+  border-radius: 999px;
+  margin-right: 6px; 
+  margin-bottom: 6px;
+}
+
+/* --- MODAL (POP-UP) STYLES --- */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--white);
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: var(--radius);
+  position: relative;
+  padding: 40px;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--grey);
+  background: none; border: none;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--amber-dark); }
+
+/* Modal Internal Content */
+.modal-content h3 { font-size: 2rem; margin-bottom: 10px; }
+.modal-content .modal-tag { font-size: 0.8rem; font-weight: 700; color: var(--amber-dark); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; display: block;}
+.modal-content h4 {
+  font-family: var(--font-body);
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--amber-dark); margin: 24px 0 8px; font-weight: 700;
+}
+.modal-content p { font-size: 1rem; color: var(--charcoal-2); margin-bottom: 10px; }
+.modal-content ul { list-style: none; padding: 0; margin-top: 10px; }
+.modal-content ul li {
+  font-size: 1rem; color: var(--charcoal-2); padding-left: 20px;
+  position: relative; margin-bottom: 8px;
+}
+.modal-content ul li::before {
+  content: ''; position: absolute; left: 0; top: 10px;
+  width: 6px; height: 6px; background: var(--amber); border-radius: 50%;
 }
 
 /* ============================================================
@@ -608,61 +724,175 @@ footer {
       <span class="eyebrow">Portfolio</span>
       <h2>A closer look at the problems I solve, the solutions I design, and the work I deliver.</h2>
     </div>
-     <div class="case-grid">
 
-      <!-- CASE STUDY 1 -->
-      <a href="#" class="case-card">
+    <div class="case-grid">
+
+      <!-- CARD 1 -->
+      <div class="case-card" onclick="openModal('modal-1')">
         <div class="case-card-image" style="background-image: url('onboarding.jpg');"></div>
         <div class="case-content">
           <h3>Transforming New Hire Experience</h3>
-          <div>
+          <p class="case-summary">Replacing fragmented onboarding with a structured 30-60-90 day learning journey.</p>
+          <div class="case-metrics-container">
             <span class="case-metric">Single source of truth</span>
             <span class="case-metric">Faster time-to-productivity</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <!-- CASE STUDY 2 -->
-      <a href="#" class="case-card">
+      <!-- CARD 2 -->
+      <div class="case-card" onclick="openModal('modal-2')">
         <div class="case-card-image" style="background-image: url('career.jpg');"></div>
         <div class="case-content">
           <h3>My Career Path</h3>
-          <div>
+          <p class="case-summary">A guided career development programme blending structured learning, on-the-job application, and a capstone.</p>
+          <div class="case-metrics-container">
             <span class="case-metric">73% participation</span>
             <span class="case-metric">Enterprise scale</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <!-- CASE STUDY 3 -->
-      <a href="#" class="case-card">
+      <!-- CARD 3 -->
+      <div class="case-card" onclick="openModal('modal-3')">
         <div class="case-card-image" style="background-image: url('leadership.jpg');"></div>
         <div class="case-content">
           <h3>Universal Leadership Library</h3>
-          <div>
+          <p class="case-summary">An on-demand leadership development experience across six leadership pillars.</p>
+          <div class="case-metrics-container">
             <span class="case-metric">+13.79% unique visitors</span>
             <span class="case-metric">+14.41% page views</span>
           </div>
         </div>
-      </a>
+      </div>
 
-      <!-- CASE STUDY 4 -->
-      <a href="#" class="case-card">
+      <!-- CARD 4 -->
+      <div class="case-card" onclick="openModal('modal-4')">
         <div class="case-card-image" style="background-image: url('certification.jpg');"></div>
         <div class="case-content">
           <h3>Omni Retail Excellence Certification</h3>
-          <div>
+          <p class="case-summary">A five-course asynchronous certification building broader retail business acumen.</p>
+          <div class="case-metrics-container">
             <span class="case-metric">116 associates</span>
             <span class="case-metric">37% completion</span>
           </div>
         </div>
-      </a>
+      </div>
 
     </div>
-      </article>
+  </div>
+</section>
 
-      
+<!-- ============================================================
+     MODALS (HIDDEN BY DEFAULT)
+     ============================================================ -->
+
+<!-- Modal 1 -->
+<div class="modal-overlay" id="modal-1" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal(event)">×</button>
+    <span class="modal-tag">Onboarding Experience</span>
+    <h3>Transforming New Hire Experience</h3>
+    
+    <h4>Challenge</h4>
+    <p>Onboarding information — processes, tools, system access, resources, and points of contact — was scattered across multiple sources and heavily reliant on a buddy. This created inconsistent experiences and delayed new hires' ability to contribute.</p>
+
+    <h4>Strategy</h4>
+    <ul>
+      <li>Reduce information overload by prioritising relevant resources</li>
+      <li>Create a single, organised experience instead of scattered sources</li>
+      <li>Provide guidance at the right time through a phased journey</li>
+      <li>Help new hires build confidence in the team, tools, and expectations</li>
+    </ul>
+
+    <h4>My Role</h4>
+    <p>Led the end-to-end design — from identifying the opportunity and defining strategy to building the architecture, experience flow, milestones, and content for the first 90 days.</p>
+
+    <h4>Impact</h4>
+    <p>A focused, intuitive, and consistent onboarding experience. New hires accessed relevant resources faster, built confidence through a structured path, and the team reduced effort to onboard future hires.</p>
+  </div>
+</div>
+
+<!-- Modal 2 -->
+<div class="modal-overlay" id="modal-2" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal(event)">×</button>
+    <span class="modal-tag">Career Development · AI-Assisted</span>
+    <h3>My Career Path</h3>
+    
+    <h4>Challenge</h4>
+    <p>Store associates had strong onboarding but no clear way to prepare for their next role. Career readiness varied across teams, and the business needed a scalable framework to standardise development across multiple career paths.</p>
+
+    <h4>Strategy — Learn → Experience → Assess</h4>
+    <p>Designed a guided development programme built on a three-part framework:</p>
+    <div class="lea">
+      <div class="lea-step"><strong>Learn</strong><span>Focused foundational content</span></div>
+      <div class="lea-step"><strong>Experience</strong><span>Realistic scenarios &amp; on-the-job application</span></div>
+      <div class="lea-step"><strong>Assess</strong><span>Application-based decisions &amp; capstone</span></div>
     </div>
+    <p style="margin-top:14px;">Phase 1 covered three pathways: Store Lead → Store Manager, Coach → Store Manager, and Team Lead → Realty Project Coach.</p>
+
+    <h4>My Role</h4>
+    <p>Co-designed and co-led the end-to-end learning experience — developing content, activities, and assessments, collaborating with global cross-functional stakeholders and SMEs, providing quality reviews, and partnering with the tech team to launch. Leveraged Generative AI throughout for content creation, editing, and QA.</p>
+
+    <h4>Impact</h4>
+    <p>Exceeded enrolment goals with 73% overall participation. Established a scalable framework for career development — demonstrating how experiential learning, cross-functional collaboration, and AI-assisted design can deliver enterprise learning at scale.</p>
+  </div>
+</div>
+
+<!-- Modal 3 -->
+<div class="modal-overlay" id="modal-3" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal(event)">×</button>
+    <span class="modal-tag">Leadership Development</span>
+    <h3>Universal Leadership Library</h3>
+    
+    <h4>Challenge</h4>
+    <p>Leadership resources were scattered, heavily reliant on LinkedIn Learning, not mobile-friendly, and not inclusive of emerging leaders — limiting continuous, self-directed growth.</p>
+
+    <h4>Strategy</h4>
+    <p>Approached the library as an <em>experience</em>, not a collection of lessons. Focused on making leadership development practical, accessible, and immediately useful — through concise content, discussion-based learning, practical tools, and performance support leaders could apply in the flow of work.</p>
+    <p>The library spans six leadership pillars: <strong>Courage, Curiosity, Cognizance, Cultural Intelligence, Commitment, and Collaboration.</strong></p>
+
+    <h4>My Role</h4>
+    <p>Served as the sole instructional designer for the Financial Acumen section. Partnered with LAs, SMEs, and field experts to design focus groups, peer groups, and self-guided experiences — creating interactive activities, ILT outlines, and end-to-end quality assurance.</p>
+
+    <h4>Impact</h4>
+    <ul>
+      <li><strong>+13.79%</strong> unique visitors month-over-month (27,846 / 31,687)</li>
+      <li><strong>+14.41%</strong> page views month-over-month (37,636 / 43,060)</li>
+      <li>Expanded leadership development from mandatory courses into an always-on ecosystem</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Modal 4 -->
+<div class="modal-overlay" id="modal-4" onclick="closeModal(event)">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal(event)">×</button>
+    <span class="modal-tag">Certification · Retail Acumen</span>
+    <h3>Omni Retail Excellence Certification</h3>
+    
+    <h4>Challenge</h4>
+    <p>Entry-level associates had limited visibility into the broader business. The challenge was to build a scalable certification covering retail operations, strategy, customer behaviour, supply chain, finance, and workforce management — without being application- or role-specific.</p>
+
+    <h4>Strategy</h4>
+    <p>Created a knowledge-transfer-focused, brand-agnostic learning experience inspired by platforms like Coursera. Instead of teaching a specific job, the program helped learners understand the broader forces that shape retail — across five interconnected areas:</p>
+    <ul>
+      <li>Retail Operations</li>
+      <li>Omni-Channel Strategy</li>
+      <li>Supply Chain &amp; Inventory</li>
+      <li>Financial Acumen</li>
+      <li>Workforce Management</li>
+    </ul>
+
+    <h4>My Role</h4>
+    <p>As Content Designer and Acting Learning Architect, translated the vision into a cohesive five-course journey — defined the instructional approach, developed content, created the DLO for Financial Acumen, owned scripting and Elucidat development, peer-reviewed assessments for two courses, and supported uLearn deployment.</p>
+
+    <h4>Impact</h4>
+    <p>By end of Q2 2024, the course reached <strong>116 associates across nine academies</strong> with a <strong>37% completion rate</strong> — demonstrating early adoption and providing a foundation to scale across a broader associate audience.</p>
+  </div>
+</div>
   </div>
 </section>
 
@@ -843,7 +1073,23 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+/* ============================================================
+   MODAL POP-UP LOGIC
+   ============================================================ */
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden'; // Prevents background scrolling
+}
 
+function closeModal(e) {
+  // Only close if clicking the background overlay or the close button
+  if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.classList.remove('active');
+    });
+    document.body.style.overflow = 'auto'; // Restores scrolling
+  }
+}
 /* ============================================================
    BACK TO TOP — show/hide on scroll
    ============================================================ */
