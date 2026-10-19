@@ -329,6 +329,20 @@ nav {
 
 .tab-content.active-tab {
   display: block;
+  margin-bottom: 40px; /* Adds space below the tab content before the section ends */
+}
+
+/* The Empty State Message */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  background: var(--white);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--grey);
+  font-size: 1.05rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 /* Tab Close Button (Sticky) */
@@ -778,12 +792,23 @@ footer {
       <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
     </div>
 
+     <!-- Tab Buttons -->
+    <div class="tab-menu">
+      <button class="tab-btn active" onclick="openTab('case-studies', this)">Case Studies</button>
+      <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
+    </div>
+
+    <!-- Empty State (Only shows if both tabs are closed) -->
+    <div id="empty-tab-state" class="empty-state" style="display: none;">
+      Please select a tab above to view my Case Studies or Work Samples.
+    </div>
+
     <!-- Case Studies Tab (OPEN BY DEFAULT) -->
     <div id="case-studies" class="tab-content active-tab">
       <button class="close-tab" onclick="closeTab('case-studies', this)">×</button>
       
       <p class="tab-description">
-        A selection of enterprise learning initiatives where I partnered with stakeholders to solve complex business problems. Click any card to read the full case study, including the challenge, strategy, my role, and the measurable impact.
+       Here are some of the enterprise learning initiatives where I partnered with stakeholders to solve business problems.
       </p>
 
       <div class="case-grid">
@@ -1125,6 +1150,9 @@ footer {
    TAB LOGIC FOR PORTFOLIO
    ============================================================ */
 function openTab(tabId, btn) {
+  // Hide the empty state
+  document.getElementById('empty-tab-state').style.display = 'none';
+
   // Hide all tabs
   document.querySelectorAll('.tab-content').forEach(tab => {
     tab.classList.remove('active-tab');
@@ -1148,11 +1176,17 @@ function closeTab(tabId) {
   
   // Remove active state from the corresponding button
   document.querySelectorAll('.tab-btn').forEach(btn => {
-    // Finds the matching tab button and removes the active style
     if(btn.innerText.toLowerCase().replace(' ', '-').includes(tabId.split('-')[0])) {
       btn.classList.remove('active');
     }
   });
+
+  // Check if ALL tabs are now closed
+  const openTabs = document.querySelectorAll('.tab-content.active-tab');
+  if (openTabs.length === 0) {
+    // If no tabs are open, show the empty state message
+    document.getElementById('empty-tab-state').style.display = 'block';
+  }
 }
 
 /* ============================================================
