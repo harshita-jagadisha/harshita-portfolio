@@ -273,34 +273,55 @@ nav {
 /* Tab Navigation */
 .tab-menu {
   display: flex;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 32px;
+  border-bottom: 1px solid var(--border); /* The long grey track */
+  margin-bottom: 32px;
 }
 
 .tab-btn {
   background: transparent;
-  border: 1px solid var(--border);
+  border: none;
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--grey);
   cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 999px;
-  transition: all 0.2s ease;
+  padding: 12px 0; /* Padding top/bottom, no side padding */
+  position: relative;
+  transition: color 0.2s ease;
+  text-transform: uppercase; /* Optional: MD tabs usually look good in caps */
+  letter-spacing: 0.05em;
 }
 
 .tab-btn:hover {
   color: var(--charcoal);
-  border-color: var(--charcoal);
 }
 
+/* The Active Tab Text */
 .tab-btn.active {
-  background: var(--charcoal);
-  color: var(--white);
-  border-color: var(--charcoal);
+  color: var(--amber-dark);
 }
 
+/* The Animated Amber Indicator Bar */
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -1px; /* Overlaps the grey track perfectly */
+  left: 0;
+  width: 100%;
+  height: 3px; /* Thickness of the indicator */
+  background-color: var(--amber);
+  transform: scaleX(0); /* Hidden by default */
+  transition: transform 0.3s ease; /* Slide-in animation */
+  transform-origin: left;
+}
+
+/* Show the bar when active */
+.tab-btn.active::after {
+  transform: scaleX(1);
+}
+
+/* Tab Content Container */
 .tab-content {
   display: none;
   position: relative;
