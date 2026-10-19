@@ -91,7 +91,7 @@ p  { color: var(--charcoal-2); font-family: var(--font-body); }
    ============================================================ */
 nav {
   position: sticky; top: 0; z-index: 100;
-  background: rgba(250,250,249,0.88); /* Matches soft-grey hero */
+  background: rgba(250,250,249,0.88); 
   backdrop-filter: saturate(180%) blur(12px);
   border-bottom: 1px solid var(--border);
 }
@@ -262,7 +262,6 @@ nav {
 .pillar h4 { font-size: 1.15rem; margin-bottom: 10px; font-family: var(--font-head); }
 .pillar p { font-size: 0.94rem; color: var(--grey); }
 
-
 /* ============================================================
    PORTFOLIO (TABS & CASE STUDIES)
    ============================================================ */
@@ -270,11 +269,11 @@ nav {
   background-color: var(--soft-grey);
 }
 
-/* Tab Navigation */
+/* Material Design Tabs */
 .tab-menu {
   display: flex;
   gap: 32px;
-  border-bottom: 1px solid var(--border); /* The long grey track */
+  border-bottom: 1px solid var(--border); 
   margin-bottom: 32px;
 }
 
@@ -282,46 +281,37 @@ nav {
   background: transparent;
   border: none;
   font-family: var(--font-body);
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--grey);
   cursor: pointer;
-  padding: 12px 0; /* Padding top/bottom, no side padding */
+  padding: 12px 0; 
   position: relative;
   transition: color 0.2s ease;
-  text-transform: uppercase; /* Optional: MD tabs usually look good in caps */
-  letter-spacing: 0.05em;
+  text-transform: uppercase; 
+  letter-spacing: 0.08em;
 }
 
-.tab-btn:hover {
-  color: var(--charcoal);
-}
+.tab-btn:hover { color: var(--charcoal); }
+.tab-btn.active { color: var(--amber-dark); }
 
-/* The Active Tab Text */
-.tab-btn.active {
-  color: var(--amber-dark);
-}
-
-/* The Animated Amber Indicator Bar */
+/* The Amber Indicator Bar */
 .tab-btn::after {
   content: '';
   position: absolute;
-  bottom: -1px; /* Overlaps the grey track perfectly */
+  bottom: -1px; 
   left: 0;
   width: 100%;
-  height: 3px; /* Thickness of the indicator */
+  height: 3px; 
   background-color: var(--amber);
-  transform: scaleX(0); /* Hidden by default */
-  transition: transform 0.3s ease; /* Slide-in animation */
+  transform: scaleX(0); 
+  transition: transform 0.3s ease; 
   transform-origin: left;
 }
 
-/* Show the bar when active */
-.tab-btn.active::after {
-  transform: scaleX(1);
-}
+.tab-btn.active::after { transform: scaleX(1); }
 
-/* Tab Content Container */
+/* Tab Content */
 .tab-content {
   display: none;
   position: relative;
@@ -329,13 +319,9 @@ nav {
 
 .tab-content.active-tab {
   display: block;
-  margin-bottom: 40px; /* Adds space below the tab content before the section ends */
 }
 
-/* The Empty State Message */
-
-
-/* Tab Close Button (Sticky) */
+/* The Sticky Close Button */
 .close-tab {
   position: absolute;
   top: 0;
@@ -428,7 +414,7 @@ nav {
   color: var(--grey);
   margin-bottom: 24px;
   line-height: 1.5;
-  flex-grow: 1; /* Pushes button to bottom */
+  flex-grow: 1; 
 }
 
 /* Card Button (Only this highlights on hover) */
@@ -554,7 +540,6 @@ nav {
 /* Modal Internal Content */
 .modal-content h3 { font-size: 2rem; margin-bottom: 10px; }
 
-/* Single Line Amber Tag */
 .modal-tag {
   display: block;
   font-family: var(--font-body);
@@ -765,7 +750,7 @@ footer {
   </div>
 </section>
 
-   <!-- ============================================================
+<!-- ============================================================
      PORTFOLIO (TABS: CASE STUDIES & WORK SAMPLES)
      ============================================================ -->
 <section id="portfolio" class="reveal">
@@ -776,13 +761,13 @@ footer {
       <h2>A closer look at the problems I solve, the solutions I design, and the work I deliver.</h2>
     </div>
 
-    <!-- Tab Buttons (Only appears once now) -->
+    <!-- Tab Buttons -->
     <div class="tab-menu">
       <button class="tab-btn active" onclick="openTab('case-studies', this)">Case Studies</button>
       <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
     </div>
 
-    <!-- Case Studies Tab (OPEN BY DEFAULT) -->
+    <!-- Case Studies Tab -->
     <div id="case-studies" class="tab-content active-tab">
       <button class="close-tab" onclick="closeTab('case-studies', this)">×</button>
       
@@ -800,6 +785,7 @@ footer {
             <a onclick="openModal('modal-1')" class="case-btn">Go to case study</a>
           </div>
         </div>
+
         <!-- CARD 2 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('career.jpg');"></div>
@@ -809,6 +795,7 @@ footer {
             <a onclick="openModal('modal-2')" class="case-btn">Go to case study</a>
           </div>
         </div>
+
         <!-- CARD 3 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('leadership.jpg');"></div>
@@ -818,6 +805,7 @@ footer {
             <a onclick="openModal('modal-3')" class="case-btn">Go to case study</a>
           </div>
         </div>
+
         <!-- CARD 4 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('certification.jpg');"></div>
@@ -1125,28 +1113,21 @@ footer {
    TAB LOGIC FOR PORTFOLIO
    ============================================================ */
 function openTab(tabId, btn) {
-  // Hide all tabs
   document.querySelectorAll('.tab-content').forEach(tab => {
     tab.classList.remove('active-tab');
   });
   
-  // Remove active state from all buttons
   document.querySelectorAll('.tab-btn').forEach(b => {
     b.classList.remove('active');
   });
   
-  // Show the selected tab
   document.getElementById(tabId).classList.add('active-tab');
-  
-  // Add active state to the clicked button
   btn.classList.add('active');
 }
 
 function closeTab(tabId) {
-  // Hide the tab
   document.getElementById(tabId).classList.remove('active-tab');
   
-  // Remove active state from the corresponding button
   document.querySelectorAll('.tab-btn').forEach(btn => {
     if(btn.innerText.toLowerCase().replace(' ', '-').includes(tabId.split('-')[0])) {
       btn.classList.remove('active');
@@ -1154,29 +1135,20 @@ function closeTab(tabId) {
   });
 }
 
-  // Check if ALL tabs are now closed
-  const openTabs = document.querySelectorAll('.tab-content.active-tab');
-  if (openTabs.length === 0) {
-    // If no tabs are open, show the empty state message
-    document.getElementById('empty-tab-state').style.display = 'block';
-  }
-}
-
 /* ============================================================
    MODAL POP-UP LOGIC
    ============================================================ */
 function openModal(id) {
   document.getElementById(id).classList.add('active');
-  document.body.style.overflow = 'hidden'; // Prevents background scrolling
+  document.body.style.overflow = 'hidden'; 
 }
 
 function closeModal(e) {
-  // Only close if clicking the background overlay or the close button
   if (e.target.classList.contains('modal-overlay') || e.target.classList.contains('modal-close')) {
     document.querySelectorAll('.modal-overlay').forEach(modal => {
       modal.classList.remove('active');
     });
-    document.body.style.overflow = 'auto'; // Restores scrolling
+    document.body.style.overflow = 'auto'; 
   }
 }
 
