@@ -264,12 +264,95 @@ nav {
 
 
 /* ============================================================
-   PORTFOLIO (CASE STUDIES)
+   PORTFOLIO (TABS & CASE STUDIES)
    ============================================================ */
 #portfolio {
   background-color: var(--soft-grey);
 }
 
+/* Tab Navigation */
+.tab-menu {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--grey);
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--charcoal);
+  border-color: var(--charcoal);
+}
+
+.tab-btn.active {
+  background: var(--charcoal);
+  color: var(--white);
+  border-color: var(--charcoal);
+}
+
+.tab-content {
+  display: none;
+  position: relative;
+}
+
+.tab-content.active-tab {
+  display: block;
+}
+
+/* Tab Close Button (Sticky) */
+.close-tab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-size: 1.3rem;
+  color: var(--grey);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: var(--shadow);
+}
+
+.tab-content.active-tab .close-tab {
+  position: sticky;
+  float: right;
+  top: 20px;
+  margin-top: -10px;
+}
+
+.close-tab:hover {
+  background: var(--amber);
+  color: var(--charcoal);
+  border-color: var(--amber);
+}
+
+.tab-description {
+  font-size: 1rem;
+  color: var(--charcoal-2);
+  margin-bottom: 32px;
+  max-width: 800px;
+  padding-right: 40px; 
+}
+
+/* Case Study Grid */
 .case-grid { 
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
@@ -288,6 +371,7 @@ nav {
   flex-direction: column;
   overflow: hidden;
 }
+
 .case-card-image {
   width: 100%;
   height: 180px;
@@ -319,10 +403,10 @@ nav {
   color: var(--grey);
   margin-bottom: 24px;
   line-height: 1.5;
-  flex-grow: 1; /* Pushes the button to the bottom */
+  flex-grow: 1; /* Pushes button to bottom */
 }
 
-/* The Card Button */
+/* Card Button (Only this highlights on hover) */
 .case-btn {
   display: block;
   width: 100%;
@@ -338,10 +422,41 @@ nav {
   cursor: pointer;
 }
 
-   .case-btn:hover {
+.case-btn:hover {
   background: var(--amber);
   color: var(--charcoal);
 }
+
+/* Work Samples Links */
+.work-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.work-link-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.work-link-item:hover {
+  border-color: var(--amber);
+  box-shadow: var(--shadow);
+  transform: translateX(4px);
+}
+
+.work-link-item span:last-child {
+  color: var(--amber-dark);
+  font-weight: 600;
+}
+
 /* ============================================================
    MODAL (POP-UP) STYLES
    ============================================================ */
@@ -383,6 +498,7 @@ nav {
   transform: translateY(0);
 }
 
+/* Sticky Close Button for Modals */
 .modal-close {
   position: sticky;
   top: 0;
@@ -404,9 +520,11 @@ nav {
   z-index: 10;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-.modal-close:hover { color: var(--amber-dark); 
+.modal-close:hover { 
+  color: var(--amber-dark); 
   background: var(--soft-grey);
-  transform: scale(1.05); }
+  transform: scale(1.05);
+}
 
 /* Modal Internal Content */
 .modal-content h3 { font-size: 2rem; margin-bottom: 10px; }
@@ -623,58 +741,98 @@ footer {
 </section>
 
 <!-- ============================================================
-     PORTFOLIO (CASE STUDIES)
+     PORTFOLIO (TABS: CASE STUDIES & WORK SAMPLES)
      ============================================================ -->
 <section id="portfolio" class="reveal">
   <div class="wrap">
+    
     <div class="section-head">
       <span class="eyebrow">Portfolio</span>
-      <p>A closer look at the problems I solve, the solutions I design, and the work I deliver.</p>
+      <h2>A closer look at the problems I solve, the solutions I design, and the work I deliver.</h2>
     </div>
 
-    <div class="case-grid">
-
-      <!-- CARD 1 -->
-      <div class="case-card">
-        <div class="case-card-image" style="background-image: url('onboarding.jpg');"></div>
-        <div class="case-content">
-          <h3>Transforming New Hire Experience</h3>
-          <p class="case-summary">Replacing fragmented onboarding with a structured 30-60-90 day learning journey.</p>
-          <a onclick="openModal('modal-1')" class="case-btn">Go to case study</a>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="case-card">
-        <div class="case-card-image" style="background-image: url('career.jpg');"></div>
-        <div class="case-content">
-          <h3>My Career Path</h3>
-          <p class="case-summary">A guided career development programme blending structured learning, on-the-job application, and a capstone.</p>
-          <a onclick="openModal('modal-2')" class="case-btn">Go to case study</a>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="case-card">
-        <div class="case-card-image" style="background-image: url('leadership.jpg');"></div>
-        <div class="case-content">
-          <h3>Universal Leadership Library</h3>
-          <p class="case-summary">An on-demand leadership development experience across six leadership pillars.</p>
-          <a onclick="openModal('modal-3')" class="case-btn">Go to case study</a>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="case-card">
-        <div class="case-card-image" style="background-image: url('certification.jpg');"></div>
-        <div class="case-content">
-          <h3>Omni Retail Excellence Certification</h3>
-          <p class="case-summary">A five-course asynchronous certification building broader retail business acumen.</p>
-          <a onclick="openModal('modal-4')" class="case-btn">Go to case study</a>
-        </div>
-      </div>
-
+    <!-- Tab Buttons -->
+    <div class="tab-menu">
+      <button class="tab-btn active" onclick="openTab('case-studies', this)">Case Studies</button>
+      <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
     </div>
+
+    <!-- Case Studies Tab (OPEN BY DEFAULT) -->
+    <div id="case-studies" class="tab-content active-tab">
+      <button class="close-tab" onclick="closeTab('case-studies', this)">×</button>
+      
+      <p class="tab-description">
+        A selection of enterprise learning initiatives where I partnered with stakeholders to solve complex business problems. Click any card to read the full case study, including the challenge, strategy, my role, and the measurable impact.
+      </p>
+
+      <div class="case-grid">
+        <!-- CARD 1 -->
+        <div class="case-card">
+          <div class="case-card-image" style="background-image: url('onboarding.jpg');"></div>
+          <div class="case-content">
+            <h3>Transforming New Hire Experience</h3>
+            <p class="case-summary">Replacing fragmented onboarding with a structured 30-60-90 day learning journey.</p>
+            <a onclick="openModal('modal-1')" class="case-btn">Go to case study</a>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="case-card">
+          <div class="case-card-image" style="background-image: url('career.jpg');"></div>
+          <div class="case-content">
+            <h3>My Career Path</h3>
+            <p class="case-summary">A guided career development programme blending structured learning, on-the-job application, and a capstone.</p>
+            <a onclick="openModal('modal-2')" class="case-btn">Go to case study</a>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="case-card">
+          <div class="case-card-image" style="background-image: url('leadership.jpg');"></div>
+          <div class="case-content">
+            <h3>Universal Leadership Library</h3>
+            <p class="case-summary">An on-demand leadership development experience across six leadership pillars.</p>
+            <a onclick="openModal('modal-3')" class="case-btn">Go to case study</a>
+          </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="case-card">
+          <div class="case-card-image" style="background-image: url('certification.jpg');"></div>
+          <div class="case-content">
+            <h3>Omni Retail Excellence Certification</h3>
+            <p class="case-summary">A five-course asynchronous certification building broader retail business acumen.</p>
+            <a onclick="openModal('modal-4')" class="case-btn">Go to case study</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Samples Tab -->
+    <div id="work-samples" class="tab-content">
+      <button class="close-tab" onclick="closeTab('work-samples', this)">×</button>
+      
+      <p class="tab-description">
+        A collection of learning assets, interactive modules, and design samples. These demonstrate my hands-on capabilities in instructional design, storyboarding, and building interactive learning experiences.
+      </p>
+
+      <!-- Add your Work Sample Links Here -->
+      <div class="work-links">
+        <a href="#" class="work-link-item">
+          <span>Interactive eLearning Module: Navigating Change</span>
+          <span>View →</span>
+        </a>
+        <a href="#" class="work-link-item">
+          <span>Leadership Development Storyboard</span>
+          <span>View →</span>
+        </a>
+        <a href="#" class="work-link-item">
+          <span>Microlearning Video: Data Privacy Basics</span>
+          <span>View →</span>
+        </a>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -942,6 +1100,40 @@ footer {
 </footer>
 
 <script>
+/* ============================================================
+   TAB LOGIC FOR PORTFOLIO
+   ============================================================ */
+function openTab(tabId, btn) {
+  // Hide all tabs
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active-tab');
+  });
+  
+  // Remove active state from all buttons
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.remove('active');
+  });
+  
+  // Show the selected tab
+  document.getElementById(tabId).classList.add('active-tab');
+  
+  // Add active state to the clicked button
+  btn.classList.add('active');
+}
+
+function closeTab(tabId) {
+  // Hide the tab
+  document.getElementById(tabId).classList.remove('active-tab');
+  
+  // Remove active state from the corresponding button
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    // Finds the matching tab button and removes the active style
+    if(btn.innerText.toLowerCase().replace(' ', '-').includes(tabId.split('-')[0])) {
+      btn.classList.remove('active');
+    }
+  });
+}
+
 /* ============================================================
    MODAL POP-UP LOGIC
    ============================================================ */
