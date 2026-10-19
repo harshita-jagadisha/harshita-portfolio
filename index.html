@@ -333,17 +333,7 @@ nav {
 }
 
 /* The Empty State Message */
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  background: var(--white);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  color: var(--grey);
-  font-size: 1.05rem;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+
 
 /* Tab Close Button (Sticky) */
 .close-tab {
@@ -775,7 +765,7 @@ footer {
   </div>
 </section>
 
-<!-- ============================================================
+   <!-- ============================================================
      PORTFOLIO (TABS: CASE STUDIES & WORK SAMPLES)
      ============================================================ -->
 <section id="portfolio" class="reveal">
@@ -786,21 +776,10 @@ footer {
       <h2>A closer look at the problems I solve, the solutions I design, and the work I deliver.</h2>
     </div>
 
-    <!-- Tab Buttons -->
+    <!-- Tab Buttons (Only appears once now) -->
     <div class="tab-menu">
       <button class="tab-btn active" onclick="openTab('case-studies', this)">Case Studies</button>
       <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
-    </div>
-
-     <!-- Tab Buttons -->
-    <div class="tab-menu">
-      <button class="tab-btn active" onclick="openTab('case-studies', this)">Case Studies</button>
-      <button class="tab-btn" onclick="openTab('work-samples', this)">Work Samples</button>
-    </div>
-
-    <!-- Empty State (Only shows if both tabs are closed) -->
-    <div id="empty-tab-state" class="empty-state" style="display: none;">
-      Please select a tab above to view my Case Studies or Work Samples.
     </div>
 
     <!-- Case Studies Tab (OPEN BY DEFAULT) -->
@@ -808,7 +787,7 @@ footer {
       <button class="close-tab" onclick="closeTab('case-studies', this)">×</button>
       
       <p class="tab-description">
-       Here are some of the enterprise learning initiatives where I partnered with stakeholders to solve business problems.
+        A selection of enterprise learning initiatives where I partnered with stakeholders to solve complex business problems. Click any card to read the full case study, including the challenge, strategy, my role, and the measurable impact.
       </p>
 
       <div class="case-grid">
@@ -821,7 +800,6 @@ footer {
             <a onclick="openModal('modal-1')" class="case-btn">Go to case study</a>
           </div>
         </div>
-
         <!-- CARD 2 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('career.jpg');"></div>
@@ -831,7 +809,6 @@ footer {
             <a onclick="openModal('modal-2')" class="case-btn">Go to case study</a>
           </div>
         </div>
-
         <!-- CARD 3 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('leadership.jpg');"></div>
@@ -841,7 +818,6 @@ footer {
             <a onclick="openModal('modal-3')" class="case-btn">Go to case study</a>
           </div>
         </div>
-
         <!-- CARD 4 -->
         <div class="case-card">
           <div class="case-card-image" style="background-image: url('certification.jpg');"></div>
@@ -862,7 +838,6 @@ footer {
         A collection of learning assets, interactive modules, and design samples. These demonstrate my hands-on capabilities in instructional design, storyboarding, and building interactive learning experiences.
       </p>
 
-      <!-- Add your Work Sample Links Here -->
       <div class="work-links">
         <a href="#" class="work-link-item">
           <span>Interactive eLearning Module: Navigating Change</span>
@@ -1150,9 +1125,6 @@ footer {
    TAB LOGIC FOR PORTFOLIO
    ============================================================ */
 function openTab(tabId, btn) {
-  // Hide the empty state
-  document.getElementById('empty-tab-state').style.display = 'none';
-
   // Hide all tabs
   document.querySelectorAll('.tab-content').forEach(tab => {
     tab.classList.remove('active-tab');
@@ -1180,6 +1152,7 @@ function closeTab(tabId) {
       btn.classList.remove('active');
     }
   });
+}
 
   // Check if ALL tabs are now closed
   const openTabs = document.querySelectorAll('.tab-content.active-tab');
