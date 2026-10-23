@@ -123,17 +123,65 @@ nav {
    BACK TO TOP BUTTON
    ============================================================ */
 #toTop {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 46px; height: 46px; border-radius: 50%;
-  background: var(--charcoal); color: var(--white);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; cursor: pointer; z-index: 99;
-  opacity: 0; visibility: hidden;
+  position: fixed; 
+  bottom: 28px; 
+  right: 28px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  gap: 8px; /* Space between bubble and arrow */
+  cursor: pointer; 
+  z-index: 99;
+  opacity: 0; 
+  visibility: hidden;
   transition: all .3s ease;
-  border: none; box-shadow: var(--shadow-lg);
 }
-#toTop.show { opacity: 1; visibility: visible; }
-#toTop:hover { background: var(--amber); color: var(--charcoal); transform: translateY(-3px); }
+
+/* The Pill-Shaped Bubble */
+#toTop .bubble {
+  background: var(--charcoal); 
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  transition: all .3s ease;
+}
+
+/* The Arrow Circle */
+#toTop .arrow {
+  width: 46px; 
+  height: 46px; 
+  border-radius: 50%;
+  background: var(--charcoal); 
+  color: var(--white);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-lg);
+  transition: all .3s ease;
+}
+
+/* Show/Hide logic */
+#toTop.show { 
+  opacity: 1; 
+  visibility: visible; 
+}
+
+/* Hover effects */
+#toTop:hover .arrow { 
+  background: var(--amber); 
+  color: var(--charcoal); 
+  transform: translateY(-3px); 
+}
+#toTop:hover .bubble {
+  background: var(--amber); 
+  color: var(--charcoal);
+}
 
 /* ============================================================
    HERO
@@ -802,7 +850,10 @@ footer {
 </nav>
 
 <!-- Back to top button -->
-<button id="toTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<div id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <span class="bubble">Back to Top</span>
+  <span class="arrow">↑</span>
+</div>
 
 <!-- ============================================================
      HERO
