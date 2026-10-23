@@ -726,10 +726,17 @@ nav {
   background: var(--white);
 }
    .middle-column {
+ display: flex;
+  flex-direction: column;
+  gap: 24px; 
+  height: 100%; 
+}
+
+   /* Force both cards inside the middle column to be exactly equal height */
+.middle-column .recog-card {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 24px; /* Creates the space between the two cards */
-  height: 100%; /* Forces the column to stretch to match the outer columns */
 }
    
 .recog-card h4 {
@@ -1228,7 +1235,7 @@ footer {
 
       <!-- COLUMN 2: Education & Certifications (Split into 2 cards) -->
       <div class="middle-column">
-        <div class="recog-card" style="flex-grow: 1;">
+        <div class="recog-card">
           <h4>Education</h4>
           <ul>
             <li>Bachelor of Engineering — Information Science</li>
