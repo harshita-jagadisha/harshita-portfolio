@@ -21,7 +21,7 @@
   --amber-dark: #C9871F;
   --ivory:      #FDFBF7;
   --white:      #FFFFFF;
-  --soft-grey:  #F7F6F4;
+  --soft-grey:  #FAFAF9;
   --grey:       #6B6B6B;
   --border:     #EAE6DE;
   --max-w:      1120px;
@@ -122,7 +122,6 @@ nav {
 /* ============================================================
    BACK TO TOP BUTTON
    ============================================================ */
-/* The Container */
 #toTop {
   position: fixed; 
   bottom: 28px; 
@@ -134,11 +133,10 @@ nav {
   transition: all .3s ease;
 }
 
-/* The Pill-Shaped Bubble */
 #toTop .bubble {
   background: var(--charcoal); 
   color: var(--white);
-  padding: 12px 24px; /* Slightly larger padding since it's the only element now */
+  padding: 12px 24px; 
   border-radius: 999px;
   font-family: var(--font-body);
   font-size: 0.85rem;
@@ -149,13 +147,11 @@ nav {
   display: block;
 }
 
-/* Show/Hide logic */
 #toTop.show { 
   opacity: 1; 
   visibility: visible; 
 }
 
-/* Hover effects */
 #toTop:hover .bubble {
   background: var(--amber); 
   color: var(--charcoal);
@@ -465,105 +461,25 @@ nav {
   color: var(--charcoal);
 }
 
-   /* ============================================================
-   WORK SAMPLES GRID
-   ============================================================ */
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-@media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .work-grid { grid-template-columns: 1fr; } }
-
-.work-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color 0.2s ease;
-}
-
-.work-card:hover {
-  border-color: var(--amber);
-}
-
-.work-image {
-  width: 100%;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  background-color: var(--soft-grey);
-}
-
-.work-content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-/* The Small Blue (Amber) Label */
-.work-tag {
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--amber-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.work-card h3 {
-  font-family: var(--font-head) !important;
-  font-size: 1.05rem !important;
-  font-weight: 600 !important;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-.work-card p {
-  font-size: 0.85rem;
-  color: var(--grey);
-  margin-bottom: 24px;
-  line-height: 1.5;
-  flex-grow: 1; /* Pushes link to bottom */
-}
-
-.work-link {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--charcoal);
-  transition: color 0.2s ease;
-  display: inline-block;
-}
-
-.work-link:hover {
-  color: var(--amber);
-}
-
 /* ============================================================
    WORK SAMPLES LIST
    ============================================================ */
 .work-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-   max-width: 800px;
+  gap: 16px;
+  max-width: 100%; 
 }
 
 .work-link-item {
-  display: block; /* Changed from flex to block */
-  padding: 24px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 32px; 
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   transition: all 0.2s ease;
-  margin-bottom: 16px; /* Replaces the flex gap */
 }
 
 .work-link-item:hover {
@@ -571,75 +487,58 @@ nav {
   box-shadow: var(--shadow);
 }
 
-/* The inner container for the text and button */
 .work-info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+  padding-right: 40px; 
 }
 
-/* The View Button (Looks exactly like Case Study button) */
-.work-view {
-  display: inline-block;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--amber-dark) !important;
-  margin-top: 12px;
-  transition: all 0.2s ease;
-  text-decoration: none;
-  border-bottom: 2px solid transparent;
-  padding-bottom: 2px;
-}
-
-/* On hover, it adds a subtle underline and shifts slightly */
-.work-view:hover {
-  color: var(--charcoal) !important;
-  border-bottom-color: var(--amber);
-}
-   
-/* Left side (Label + Title) */
-.work-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-/* The small amber label (e.g., Rise 360) */
 .work-label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.8rem; 
   font-weight: 700;
   color: var(--amber-dark);
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 
-/* The main title */
 .work-title {
   font-family: var(--font-head);
-  font-size: 1.1rem;
+  font-size: 1.35rem; 
   font-weight: 600;
   color: var(--charcoal);
   line-height: 1.3;
 }
 
-   .work-desc {
+.work-desc {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.95rem; 
   color: var(--grey);
-  line-height: 1.5;
-  margin-top: 4px;
-  max-width: 800px; /* Keeps the text from hitting the "View" button */
+  line-height: 1.6;
+  margin-top: 6px;
+  max-width: 750px; 
 }
 
-/* The View link on the right */
-.work-view {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--amber-dark);
+/* The Clean Solid Button */
+.work-btn {
+  display: inline-block;
   white-space: nowrap;
+  padding: 10px 24px;
+  background: var(--charcoal);
+  color: var(--white) !important;
+  border: 1px solid var(--charcoal);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.work-btn:hover {
+  background: var(--amber);
+  color: var(--charcoal) !important;
+  border-color: var(--amber);
 }
 
 /* ============================================================
@@ -786,20 +685,6 @@ nav {
   padding: 28px; border-radius: var(--radius); border: 1px solid var(--border);
   background: var(--white);
 }
-   .middle-column {
- display: flex;
-  flex-direction: column;
-  gap: 24px; 
-  height: 100%; 
-}
-
-   /* Force both cards inside the middle column to be exactly equal height */
-.middle-column .recog-card {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-   
 .recog-card h4 {
   font-family: var(--font-body);
   font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
@@ -811,6 +696,19 @@ nav {
   border-bottom: 1px dashed var(--border);
 }
 .recog-card li:last-child { border-bottom: none; }
+
+/* Middle column container for stacked cards */
+.middle-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px; 
+  height: 100%; 
+}
+.middle-column .recog-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
 
 /* ============================================================
    CONTACT
@@ -853,10 +751,10 @@ footer {
   <div class="nav-inner">
     <div class="nav-brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">Harshita J</div>
     <div class="nav-links">
-      <a href="#about">About Me</a>
+      <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#skills">Skills</a>
-      <a href="#beyond">Beyond the Role</a>
+      <a href="#beyond">Beyond My Role</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -964,7 +862,7 @@ footer {
       <button class="close-tab" onclick="closeTab('case-studies', this)">×</button>
       
       <p class="tab-description">
-        A few learning experiences I’ve designed, shaped, and brought to life!
+        A selection of enterprise learning initiatives where I partnered with stakeholders to solve complex business problems. Click any card to read the full case study, including the challenge, strategy, my role, and the measurable impact.
       </p>
 
       <div class="case-grid">
@@ -974,7 +872,7 @@ footer {
           <div class="case-content">
             <h3>Transforming New Hire Experience</h3>
             <p class="case-summary">Replacing fragmented onboarding with a structured 30-60-90 day learning journey.</p>
-            <a onclick="openModal('modal-1')" class="case-btn">Go to Case Study ➔</a>
+            <a onclick="openModal('modal-1')" class="case-btn">Go to case study</a>
           </div>
         </div>
 
@@ -984,7 +882,7 @@ footer {
           <div class="case-content">
             <h3>My Career Path</h3>
             <p class="case-summary">A guided career development programme blending structured learning, on-the-job application, and a capstone.</p>
-            <a onclick="openModal('modal-2')" class="case-btn">Go to Case Study ➔</a>
+            <a onclick="openModal('modal-2')" class="case-btn">Go to case study</a>
           </div>
         </div>
 
@@ -994,7 +892,7 @@ footer {
           <div class="case-content">
             <h3>Universal Leadership Library</h3>
             <p class="case-summary">An on-demand leadership development experience across six leadership pillars.</p>
-            <a onclick="openModal('modal-3')" class="case-btn">Go to Case Study ➔</a>
+            <a onclick="openModal('modal-3')" class="case-btn">Go to case study</a>
           </div>
         </div>
 
@@ -1004,21 +902,21 @@ footer {
           <div class="case-content">
             <h3>Omni Retail Excellence Certification</h3>
             <p class="case-summary">A five-course asynchronous certification building broader retail business acumen.</p>
-            <a onclick="openModal('modal-4')" class="case-btn">Go to Case Study ➔</a>
+            <a onclick="openModal('modal-4')" class="case-btn">Go to case study</a>
           </div>
         </div>
       </div>
     </div>
 
-   <!-- Work Samples Tab -->
+    <!-- Work Samples Tab -->
     <div id="work-samples" class="tab-content">
       <button class="close-tab" onclick="closeTab('work-samples', this)">×</button>
       
       <p class="tab-description">
-        A gallery of learning deliverables!
+        A collection of learning assets, interactive modules, and design samples. These demonstrate my hands-on capabilities in instructional design, storyboarding, and building interactive learning experiences.
       </p>
 
-       <div class="work-links">
+      <div class="work-links">
         
         <!-- Sample 1 -->
         <div class="work-link-item">
@@ -1026,8 +924,8 @@ footer {
             <span class="work-label">Rise 360</span>
             <span class="work-title">Customer Service Essentials</span>
             <span class="work-desc">An interactive Rise 360 learning experience that equips learners with practical strategies for handling challenging customer interactions through engaging scenarios and knowledge checks.</span>
-            <a href="https://360.articulate.com/review/content/674eff7f-a21c-4727-8376-6cc9caba1fca/review" target="_blank" class="work-view">View Sample ➔ </a>
           </div>
+          <a href="https://360.articulate.com/review/content/674eff7f-a21c-4727-8376-6cc9caba1fca/review" target="_blank" class="work-btn">View Sample</a>
         </div>
 
         <!-- Sample 2 -->
@@ -1036,8 +934,8 @@ footer {
             <span class="work-label">Storyline 360</span>
             <span class="work-title">Cybersecurity Awareness</span>
             <span class="work-desc">An interactive Storyline 360 experience featuring 360° virtual office exploration, immersive navigation, and learner-driven interactions.</span>
-            <a href="#" class="work-view">View Sample ➔</a>
           </div>
+          <a href="#" class="work-btn">View Sample</a>
         </div>
 
         <!-- Sample 3 -->
@@ -1046,8 +944,8 @@ footer {
             <span class="work-label">SCORM</span>
             <span class="work-title">Compliance Fundamentals</span>
             <span class="work-desc">An interactive Articulate Rise 360 course showcasing scenario-based learning, custom interactions, knowledge checks, flashcards, sorting activities, and visual storytelling. Designed to demonstrate learner engagement, intuitive navigation, and modern eLearning design.</span>
-            <a href="#" class="work-view">View Sample ➔</a>
           </div>
+          <a href="#" class="work-btn">View Sample</a>
         </div>
 
         <!-- Sample 4 -->
@@ -1056,11 +954,13 @@ footer {
             <span class="work-label">Video</span>
             <span class="work-title">Software Demo Walkthrough</span>
             <span class="work-desc">A comprehensive video walkthrough introducing core store management tasks and system workflows, designed to onboard and guide team members through daily operational processes.</span>
-            <a href="https://6aa9247931a62978157bb0e9--tourmaline-kashata-bf1176.netlify.app/Store_Management_Tasks_Intro.mp4" target="_blank" class="work-view">View Sample ➔</a>
           </div>
+          <a href="https://6aa9247931a62978157bb0e9--tourmaline-kashata-bf1176.netlify.app/Store_Management_Tasks_Intro.mp4" target="_blank" class="work-btn">View Sample</a>
         </div>
 
       </div>
+    </div>
+
   </div>
 </section>
 
@@ -1182,7 +1082,7 @@ footer {
 <!-- ============================================================
      SKILLS
      ============================================================ -->
-<section id="skills" class="skills reveal"> 
+<section id="skills" class="skills reveal">
   <div class="wrap">
     <div class="section-head">
       <span class="eyebrow">Skills</span>
@@ -1210,8 +1110,8 @@ footer {
           <span class="skill-tag">Curriculum Development</span>
           <span class="skill-tag">Adult Learning Principles</span>
           <span class="skill-tag">Storyboarding</span>
-          <span class="skill-tag">Experiential Learning</span>
-          <span class="skill-tag">Action Mapping</span>
+          <span class="skill-tag">Assessment Design</span>
+          <span class="skill-tag">Quality Assurance</span>
         </div>
       </div>
 
@@ -1250,18 +1150,26 @@ footer {
         </div>
       </div>
 
+      <div class="skill-card">
+        <h4>Certifications</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Google AI Professional</span>
+          <span class="skill-tag">Google Project Management</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     RECOGNITION & CREDENTIALS
+     BEYOND MY ROLE (formerly Recognition & Credentials)
      ============================================================ -->
 <section id="beyond" class="reveal recognition-section">
   <div class="wrap">
     <div class="section-head">
-      <span class="eyebrow">Beyond the Role</span>
-      <h2>Awards, Certifications, Education, and a Few Moments Worth Noting.</h2>
+      <span class="eyebrow">Beyond My Role</span>
+      <h2>Awards, education, and a few moments worth noting.</h2>
     </div>
 
     <div class="recog-grid">
@@ -1281,20 +1189,20 @@ footer {
       </div>
 
       <!-- COLUMN 2: Education & Certifications (Split into 2 cards) -->
-      <div class="middle-column">     
+      <div class="middle-column">
+        <div class="recog-card">
+          <h4>Education</h4>
+          <ul>
+            <li>Bachelor of Engineering — Information Science</li>
+            <li>2014 · Aggregate 76%</li>
+          </ul>
+        </div>
+        
         <div class="recog-card">
           <h4>Certifications</h4>
           <ul>
-            <li>Google AI Professional, June 2026</li>
-            <li>Google Project Management, Aug 2026</li>
-          </ul>
-        </div>
-
-          <div class="recog-card">
-          <h4>Education</h4>
-          <ul>
-            <li>Bachelor of Engineering — Information Science (2014)</li>
-            <li>Aggregate 76%</li>
+            <li>Google AI Professional</li>
+            <li>Google Project Management</li>
           </ul>
         </div>
       </div>
